@@ -206,6 +206,50 @@ class model_admin extends CI_Model {
 			return array();
 		}
 	}
+
+	public function progresHO1(){
+		$hasil = $this->db->query("SELECT b.kode_dir,CASE WHEN AVG(a.input_realisasi_) IS NULL THEN 0 ELSE AVG(a.input_realisasi_) END AS progress FROM (SELECT * FROM `cc_program_eval` a JOIN `cc_program` b on a.input_detail_c=b.cc_detail WHERE b.status='Default')a RIGHT JOIN unit b on a.input_user_c = b.kode_unit where b.kode_lokasi='HO' GROUP BY b.kode_dir ORDER BY kode_dir DESC");
+		if($hasil->num_rows() > 0){
+			return $hasil->result();
+		}
+		else {
+			return array();
+		}
+	}
+
+	public function progresHead(){
+		$hasil = $this->db->query("SELECT 'HeadOffice',AVG(a.input_realisasi_) AS progress FROM (SELECT * FROM `cc_program_eval` a JOIN `cc_program` b on a.input_detail_c=b.cc_detail WHERE b.status='Default')a RIGHT JOIN unit b on a.input_user_c = b.kode_unit where b.kode_lokasi='HO' GROUP BY b.kode_dir ORDER BY kode_dir DESC");
+		if($hasil->num_rows() > 0){
+			return $hasil->result();
+		}
+		else {
+			return array();
+		}
+	}
+
+
+	public function progresBranch(){
+		$hasil = $this->db->query("SELECT 'BranchOffice',AVG(a.input_realisasi_) AS progress FROM (SELECT * FROM `cc_program_eval` a JOIN `cc_program` b on a.input_detail_c=b.cc_detail WHERE b.status='Default')a RIGHT JOIN unit b on a.input_user_c = b.kode_unit where b.kode_lokasi!='HO' GROUP BY b.kode_dir ORDER BY kode_dir DESC");
+		if($hasil->num_rows() > 0){
+			return $hasil->result();
+		}
+		else {
+			return array();
+		}
+	}
+
+
+	public function leaderHead(){
+		$havewarrior = $this->db->query("SELECT * FROM baru_warrior a RIGHT JOIN unit b on a.unit = b.kode_unit where b.kode_lokasi='HO' GROUP BY b.kode_dir ORDER BY kode_dir DESC");
+		if($havewarrior->num_rows() > 0){
+			return $havewarrior->result();
+		}
+		else {
+			return array();
+		}
+	}
+
+
 	public function warrior(){
 		$hasil = $this->db->query("SELECT * FROM baru_warrior");
 		if($hasil->num_rows() > 0){

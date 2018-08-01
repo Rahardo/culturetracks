@@ -43,6 +43,9 @@ class admin extends CI_Controller {
 		$data['progresbo'] = $this->model_admin->progresBO();
 		$data['progresvparea'] = $this->model_admin->progresVPAREA();
 		$data['progrescorporate'] = $this->model_admin->progrescorporate();
+		$data['progreshead'] = $this->model_admin->progresHead();
+		$data['progresbranch'] = $this->model_admin->progresBranch();
+		$data['leaderhead'] = $this->model_admin->leaderHead();
 		//print_r($data['progres']);exit(); 
 		$this->load->view('admin/dashboard_view',$data);
 	}
@@ -58,6 +61,9 @@ class admin extends CI_Controller {
 		$data['progresbo'] = $this->model_admin->progresBO();
 		$data['progresvparea'] = $this->model_admin->progresVPAREA();
 		$data['progrescorporate'] = $this->model_admin->progrescorporate();
+		$data['progreshead'] = $this->model_admin->progresHead();
+		$data['progresbranch'] = $this->model_admin->progresBranch();
+		$data['leaderhead'] = $this->model_admin->leaderHead();
 		//print_r($data['progres']);exit(); 
 		$this->load->view('admin/dashboard_warrior',$data);
 	}
@@ -72,6 +78,9 @@ class admin extends CI_Controller {
 		$data['progresbo'] = $this->model_admin->progresBO();
 		$data['progresvparea'] = $this->model_admin->progresVPAREA();
 		$data['progrescorporate'] = $this->model_admin->progrescorporate();
+		$data['progreshead'] = $this->model_admin->progresHead();
+		$data['progresbranch'] = $this->model_admin->progresBranch();
+		$data['leaderhead'] = $this->model_admin->leaderHead();
 		//print_r($data['progres']);exit(); 
 		$this->load->view('admin/dashboard_implementasi_budaya',$data);
 	}

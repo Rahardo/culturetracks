@@ -107,155 +107,10 @@ include('connection/conn.php');
               </ul>
           </nav>
         </div>
-          <div class="row  border-bottom white-bg dashboard-header">
-                <div class="row">
-          <div class="col-md-4 col-sm-4 col-xs-12 widget_tally_box">
-            <div class="x_panel" >
 
-              <?php 
-              include('query.php');
-              
 
-              $isi= number_format($total,2,".",",");
-              
-              ?>
 
-              <div class="x_title" style="text-align:center">
-                <h2 >Index Pencapaian Korporat</h2>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <div id="echart_guage" style="height:370px;"></div>
-                <div style="text-align:center">
-                  
-                </div>
-              </div>
-
-            </div>
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Jakarta Raya and <br>International Region</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-
-                <table class="table table-hover table-bordered" style="font-size:14px">
-                  <thead>
-                    <tr>
-                      <th style="width:80%">Unit</th>
-                      <th style="text-align:center">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php 
-                    $n=1;
-                    $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='5')a JOIN unit b on a.unit_name=b.kode_unit");
-                    while ($row=mysqli_fetch_array($queries)) {
-
-                      ?>
-                      <?php 
-                      if ($row['input_user_c']==null&&empty($row['input_user_c'])) {
-                        ?>
-                        <tr style=" background:#f7f7f7">
-                          <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
-                          <td style="text-align:center" >
-                            <i class="fa fa-circle" style="color:red"></i>
-                          </td>
-                        </tr>
-                        <?php                        
-                      } else {
-                        ?>
-                        <tr>
-                          <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
-                          <td style="text-align:center" >
-                            <i class="fa fa-check-circle" style="color:green"></i>
-                          </td>
-                        </tr>
-                        <?php 
-
-                      }
-                      ?>
-                      <?php 
-                    }
-
-                    ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Kalimantan, Sulawesi, & <br>Papua Region</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-
-                <table class="table table-hover table-bordered" style="font-size:14px">
-                  <thead>
-                    <tr>
-                      <th style="width:80%">Unit</th>
-                      <th style="text-align:center">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php 
-                    $n=1;
-                    $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='4')a JOIN unit b on a.unit_name=b.kode_unit");
-                    while ($row=mysqli_fetch_array($queries)) {
-
-                      ?>
-                      <?php 
-                      if ($row['input_user_c']==null&&empty($row['input_user_c'])) {
-                        ?>
-                        <tr style=" background:#f7f7f7">
-                          <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
-                          <td style="text-align:center" >
-                            <i class="fa fa-circle" style="color:red"></i>
-                          </td>
-                        </tr>
-                        <?php                        
-                      } else {
-                        ?>
-                        <tr>
-                          <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a>)</td>
-                          <td style="text-align:center" >
-                            <i class="fa fa-check-circle" style="color:green"></i>
-                          </td>
-                        </tr>
-                        <?php 
-
-                      }
-                      ?>
-                      <?php 
-                    }
-
-                    ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-8 col-sm-2    col-xs-12">
+                  <div class="col-md-12 col-sm-12    col-xs-12">
                   <div class="widget red-bg p-lg text-center">
                   <?php
                   $cc=mysqli_query($con, "SELECT * FROM cc_program where status= 'Default'");
@@ -275,10 +130,74 @@ include('connection/conn.php');
                             </div>
                         </div>  
                 </div>
-            <div class="col-md-4 col-sm-4    col-xs-12">
+
+                <div><?php echo $leaderhead[0]->kode_dir; ?></div>
+
+          <div class="row  border-bottom white-bg dashboard-header">
+                <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12 widget_tally_box">
+            <div class="x_panel" >
+
+              <?php 
+              include('query.php');
+              
+
+              $isi= number_format($total,2,".",",");
+              
+              ?>
+
+              <div class="col-md-4 col-sm-4    col-xs-12">
+
+              <div class="x_title" style="text-align:center">
+                <h2 >Index Pencapaian</h2>
+                <h2 style='font-weight: bold'>Corporate</h2>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div id="echart_gauge" style="height:370px;"></div>
+                <div style="text-align:center">
+                  
+                </div>
+              </div>
               </div>
 
-              <div class="col-md-8 col-sm-8    col-xs-12">
+              <div class="col-md-4 col-sm-4    col-xs-12">
+
+              <div class="x_title" style="text-align:center">
+                <h2 >Index Pencapaian</h2>
+                <h2 style='font-weight: bold'>Head Office</h2>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div id="echart_gauge2" style="height:370px;"></div>
+                <div style="text-align:center">
+                  
+                </div>
+              </div>
+              
+              </div>
+              <div class="col-md-4 col-sm-4    col-xs-12">
+
+              <div class="x_title" style="text-align:center">
+                <h2 >Index Pencapaian</h2>
+                <h2 style='font-weight: bold'>Branch Office</h2>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div id="echart_gauge3" style="height:370px;"></div>
+                <div style="text-align:center">
+                  
+                </div>
+              </div>
+
+              </div>
+
+            </div>
+
+
+
+
+                <div class="col-md-12 col-sm-12    col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Head Office</h2>
@@ -343,7 +262,137 @@ include('connection/conn.php');
               </div>
 
 
-              <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="col-md-6 col-sm-6    col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Jakarta Raya and <br>International Region</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+
+                <table class="table table-hover table-bordered" style="font-size:14px">
+                  <thead>
+                    <tr>
+                      <th style="width:80%">Unit</th>
+                      <th style="text-align:center">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php 
+                    $n=1;
+                    $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='5')a JOIN unit b on a.unit_name=b.kode_unit");
+                    while ($row=mysqli_fetch_array($queries)) {
+
+                      ?>
+                      <?php 
+                      if ($row['input_user_c']==null&&empty($row['input_user_c'])) {
+                        ?>
+                        <tr style=" background:#f7f7f7">
+                          <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
+                          <td style="text-align:center" >
+                            <i class="fa fa-circle" style="color:red"></i>
+                          </td>
+                        </tr>
+                        <?php                        
+                      } else {
+                        ?>
+                        <tr>
+                          <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
+                          <td style="text-align:center" >
+                            <i class="fa fa-check-circle" style="color:green"></i>
+                          </td>
+                        </tr>
+                        <?php 
+
+                      }
+                      ?>
+                      <?php 
+                    }
+
+                    ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6    col-xs-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Kalimantan, Sulawesi, & <br>Papua Region</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#">Settings 1</a>
+                      </li>
+                      <li><a href="#">Settings 2</a>
+                      </li>
+                    </ul>
+                  </li>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+
+                <table class="table table-hover table-bordered" style="font-size:14px">
+                  <thead>
+                    <tr>
+                      <th style="width:80%">Unit</th>
+                      <th style="text-align:center">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php 
+                    $n=1;
+                    $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='4')a JOIN unit b on a.unit_name=b.kode_unit");
+                    while ($row=mysqli_fetch_array($queries)) {
+
+                      ?>
+                      <?php 
+                      if ($row['input_user_c']==null&&empty($row['input_user_c'])) {
+                        ?>
+                        <tr style=" background:#f7f7f7">
+                          <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
+                          <td style="text-align:center" >
+                            <i class="fa fa-circle" style="color:red"></i>
+                          </td>
+                        </tr>
+                        <?php                        
+                      } else {
+                        ?>
+                        <tr>
+                          <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a>)</td>
+                          <td style="text-align:center" >
+                            <i class="fa fa-check-circle" style="color:green"></i>
+                          </td>
+                        </tr>
+                        <?php 
+
+                      }
+                      ?>
+                      <?php 
+                    }
+
+                    ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          </div>
+
+
+              <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Sumatera Region</h2>
@@ -400,7 +449,7 @@ include('connection/conn.php');
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Jawa, Bali,<br>Nusa Tenggara Region </h2>
@@ -871,6 +920,7 @@ include('connection/conn.php');
                 }
         });
     </script>
+
     <script>
     var theme = {
       color: [
@@ -926,7 +976,7 @@ include('connection/conn.php');
       }
     };
 
-    var echartGauge = echarts.init(document.getElementById('echart_guage'), theme);
+    var echartGauge = echarts.init(document.getElementById('echart_gauge'), theme);
 
     echartGauge.setOption({
       tooltip: {
@@ -959,8 +1009,8 @@ include('connection/conn.php');
           show: true,
           lineStyle: {
             color: [
-            [0.49, '#F44336'],
-            [0.74, '#FFEB3B '],
+            [0.50, '#F44336'],
+            [0.75, '#FFEB3B '],
             [1, '#00e676']
             ],
             width: 30
@@ -1018,11 +1068,228 @@ include('connection/conn.php');
         }]
       }]
     });
+
+
 </script>
+
+
 <?php for ($i=1; $i <=9 ; $i++) { ?>
 <script type="text/javascript">
         //GAUGE CHART//
-        var dom<?php echo $i?> = document.getElementById("echart_guage<?php echo $i?>");
+        var dom<?php echo $i?> = document.getElementById("echart_gauge<?php echo $i?>");
+        var myChart<?php echo $i?> = echarts.init(dom<?php echo $i?>);
+        var app = {};
+        option = null;
+        option = 
+            {
+
+                color: {
+                    type: 'linear',
+                    x: 0,
+                    y: 0,
+                    x2: 0,
+                    y2: 1,
+                    colorStops: [{
+                        offset: 0, color: 'red' // color at 0% position
+                    }, {
+                        offset: 1, color: 'blue' // color at 100% position
+                    }],
+                    globalCoord: false // false by default
+                },
+                resize  : true,
+                tooltip : 
+                    {
+                        formatter: "{a} <br/>{b} : <?php echo $progres[$i-1]->progress; ?> %"
+                    },
+
+
+                series: [
+                    {
+                        name: '业务指标',
+                        type: 'gauge',
+                        detail: {formatter: '<?php echo number_format($progres[$i-1]->progress,1,".","."); ?> %'},
+                        data: <?php echo number_format($progres[$i-1]->progress,0,".","."); ?>, 
+                        name:'Prosentase Ketercapaian <?php echo $progres[$i-1]->kode_dir; ?>',
+                        axisLine: {
+                            show: true,
+                            lineStyle: {
+                              color: [
+                              [0.50, '#F44336'],
+                              [0.75, '#FFEB3B '],
+                              [1, '#00e676']
+                              ],
+                              width: 30
+                            }
+                          }
+                    }
+                        ]
+            };
+
+
+            if (option && typeof option === "object") 
+                {
+                    myChart<?php echo $i?>.setOption(option, true);
+                }
+    </script>
+
+<?php } ?>
+
+
+<script>
+var theme2 = {
+      color: [
+      '#26B99A', '#34495E', '#BDC3C7', '#3498DB',
+      '#9B59B6', '#8abb6f', '#759c6a', '#bfd3b7'
+      ],
+
+      gauge: {
+        startAngle: 20,
+        endAngle: -45,
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: [[0.2, '#86b379'], [0.8, '#68a54a'], [1, '#408829']],
+            width: 8
+          }
+        },
+        axisTick: {
+          splitNumber: 10,
+          length: 12,
+          lineStyle: {
+            color: 'auto'
+          }
+        },
+        axisLabel: {
+          textStyle: {
+            color: 'auto'
+          }
+        },
+        splitLine: {
+          length: 18,
+          lineStyle: {
+            color: 'auto'
+          }
+        },
+        pointer: {
+          length: '90%',
+          color: 'auto'
+        },
+        title: {
+          textStyle: {
+            color: '#333'
+          }
+        },
+        detail: {
+          textStyle: {
+            color: 'auto'
+          }
+        }
+      },
+      textStyle: {
+        fontFamily: 'Arial, Verdana, sans-serif'
+      }
+    };
+
+    var echartGauge2 = echarts.init(document.getElementById('echart_gauge2'), theme2);
+
+    echartGauge2.setOption({
+      tooltip: {
+        formatter: "{a} <br/>{b} : {c}%"
+      },
+      toolbox: {
+        show: true,
+        feature: {
+          restore: {
+            show: true,
+            title: "Restore"
+          },
+          saveAsImage: {
+            show: true,
+            title: "Save Image"
+          }
+        }
+      },
+      series: [{
+        name: 'Employee Innovation Index 2',
+        type: 'gauge',
+        center: ['50%', '50%'],
+        startAngle: 220,
+        endAngle: -40,
+        min: 0,
+        max: 100,
+        precision: 0,
+        splitNumber: 10,
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: [
+            [0.50, '#F44336'],
+            [0.75, '#FFEB3B '],
+            [1, '#00e676']
+            ],
+            width: 30
+          }
+        },
+        axisTick: {
+          show: true,
+          splitNumber: 5,
+          length: 8,
+          lineStyle: {
+            color: '#eee',
+            width: 1,
+            type: 'solid'
+          }
+        },
+
+        splitLine: {
+          show: true,
+          length: 30,
+          lineStyle: {
+            color: '#eee',
+            width: 2,
+            type: 'solid'
+          }
+        },
+        pointer: {
+          length: '80%',
+          width: 8,
+          color: 'auto'
+        },
+        title: {
+          show: true,
+          offsetCenter: ['0%', 100],
+          textStyle: {
+            color: '#333',
+            fontSize: 15
+          }
+        },
+        detail: {
+          show: true,
+          backgroundColor: 'rgba(0,0,0,0)',
+          borderWidth: 0,
+          borderColor: '#ccc',
+          width: 100,
+          height: 40,
+          formatter: '{value}%',
+          textStyle: {
+            color: 'auto',
+            fontSize: 30
+          }
+        },
+        data: [{
+          value: <?php echo number_format($progreshead[0]->progress,0,".","."); ?> ,
+          name: 'Head Office Progress'
+        }]
+      }]
+    });
+    </script>
+    
+
+
+<?php for ($i=1; $i <=9 ; $i++) { ?>
+    <script type="text/javascript">
+        //GAUGE CHART//
+        var dom<?php echo $i?> = document.getElementById("echart_gauge2<?php echo $i?>");
         var myChart<?php echo $i?> = echarts.init(dom<?php echo $i?>);
         var app = {};
         option = null;
@@ -1077,7 +1344,113 @@ include('connection/conn.php');
                     myChart<?php echo $i?>.setOption(option, true);
                 }
     </script>
+
+
     <?php } ?>
+
+
+
+<script>
+
+var echartGauge3 = echarts.init(document.getElementById('echart_gauge3'), theme);
+
+    echartGauge3.setOption({
+      tooltip: {
+        formatter: "{a} <br/>{b} : {c}%"
+      },
+      toolbox: {
+        show: true,
+        feature: {
+          restore: {
+            show: true,
+            title: "Restore"
+          },
+          saveAsImage: {
+            show: true,
+            title: "Save Image"
+          }
+        }
+      },
+      series: [{
+        name: 'Employee Innovation Index 3',
+        type: 'gauge',
+        center: ['50%', '50%'],
+        startAngle: 220,
+        endAngle: -40,
+        min: 0,
+        max: 100,
+        precision: 0,
+        splitNumber: 10,
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: [
+            [0.50, '#F44336'],
+            [0.75, '#FFEB3B '],
+            [1, '#00e676']
+            ],
+            width: 30
+          }
+        },
+        axisTick: {
+          show: true,
+          splitNumber: 5,
+          length: 8,
+          lineStyle: {
+            color: '#eee',
+            width: 1,
+            type: 'solid'
+          }
+        },
+
+        splitLine: {
+          show: true,
+          length: 30,
+          lineStyle: {
+            color: '#eee',
+            width: 2,
+            type: 'solid'
+          }
+        },
+        pointer: {
+          length: '80%',
+          width: 8,
+          color: 'auto'
+        },
+        title: {
+          show: true,
+          offsetCenter: ['0%', 100],
+          textStyle: {
+            color: '#333',
+            fontSize: 15
+          }
+        },
+        detail: {
+          show: true,
+          backgroundColor: 'rgba(0,0,0,0)',
+          borderWidth: 0,
+          borderColor: '#ccc',
+          width: 100,
+          height: 40,
+          formatter: '{value}%',
+          textStyle: {
+            color: 'auto',
+            fontSize: 30
+          }
+        },
+        data: [{
+          value: <?php echo number_format($progresbranch[0]->progress,0,".","."); ?> ,
+          name: 'Branch Office Progress'
+        }]
+      }]
+    });
+
+
+</script>
+
+
+
+
 </body>
 </html>
     
