@@ -131,7 +131,7 @@ include('connection/conn.php');
                         </div>  
                 </div>
 
-                <div><?php echo $leaderhead[0]->kode_dir; ?></div>
+                <div><?php echo $leaderhead[0]->nopeg; ?></div>
 
           <div class="row  border-bottom white-bg dashboard-header">
                 <div class="row">

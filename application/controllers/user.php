@@ -99,9 +99,12 @@ class User extends CI_Controller {
 			$r_positif=$_POST['r_positif'];
 			$r_negatif=$_POST['r_negatif'];
 			$capaian_=round($capaian/$target*100);
+			if ($capaian_ > 100){
+				$capaian_ = 100;
+			}
 			if ($capaian>=$target) {
 				$gap=0;
-			} elseif ($capaian<$target) {
+			} else if ($capaian<$target) {
 				
 				$gap=100-$capaian_;
 			}

@@ -240,7 +240,7 @@ class model_admin extends CI_Model {
 
 
 	public function leaderHead(){
-		$havewarrior = $this->db->query("SELECT * FROM baru_warrior a RIGHT JOIN unit b on a.unit = b.kode_unit where b.kode_lokasi='HO' GROUP BY b.kode_dir ORDER BY kode_dir DESC");
+		$havewarrior = $this->db->query("SELECT a.nopeg FROM baru_warrior a RIGHT JOIN unit b on a.unit = b.kode_unit where b.kode_lokasi='HO' GROUP BY b.kode_dir ORDER BY kode_dir DESC");
 		if($havewarrior->num_rows() > 0){
 			return $havewarrior->result();
 		}
