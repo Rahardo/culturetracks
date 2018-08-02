@@ -23,6 +23,8 @@ class model_admin extends CI_Model {
 		}
 	}
 
+
+
 	public function tambah_program($data_penilaian2){
 		//Quert insert into
 		$awal = strtotime($data_penilaian2['start_month']);
@@ -238,16 +240,18 @@ class model_admin extends CI_Model {
 		}
 	}
 
-
 	public function leaderHead(){
-		$havewarrior = $this->db->query("SELECT a.nopeg FROM baru_warrior a RIGHT JOIN unit b on a.unit = b.kode_unit where b.kode_lokasi='HO' GROUP BY b.kode_dir ORDER BY kode_dir DESC");
+	}
+
+	/**public function leaderHead(){
+		$havewarrior = $this->db->query("SELECT * FROM (SELECT * FROM cc_program_eval a JOIN baru_warrior b on a.input_detail_c = b.unit WHERE b.status_aktif = '1') a RIGHT JOIN cc_program_eval b a.unit = b.input_user_c RIGHT JOIN unit c on b.input_user_c = c.kode_unit where c.kode_lokasi='HO' GROUP BY c.kode_dir ORDER BY AVG(b.input_realisasi_) DESC");
 		if($havewarrior->num_rows() > 0){
 			return $havewarrior->result();
 		}
 		else {
 			return array();
 		}
-	}
+	} */
 
 
 	public function warrior(){

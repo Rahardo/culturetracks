@@ -34,6 +34,7 @@ class admin extends CI_Controller {
 	}
 	public function index()
 	{
+
 		$data['jawa'] = $this->model_admin->listjawa();	
 		$data['jakarta'] = $this->model_admin->listjakarta();	
 		$data['kalimantan'] = $this->model_admin->listkalimantan();	
@@ -46,6 +47,8 @@ class admin extends CI_Controller {
 		$data['progreshead'] = $this->model_admin->progresHead();
 		$data['progresbranch'] = $this->model_admin->progresBranch();
 		$data['leaderhead'] = $this->model_admin->leaderHead();
+
+
 		//print_r($data['progres']);exit(); 
 		$this->load->view('admin/dashboard_view',$data);
 	}

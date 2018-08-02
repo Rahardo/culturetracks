@@ -72,8 +72,9 @@ $user=$unit;
                       <div style="text-align: center; margin-bottom: 17px">
                         <?php $ppp=0; for ($i=0; $i <count($program) ; $i++) {
                             if ($program[$i]->persen_realisasi) $ppp=$ppp+$program[$i]->persen_realisasi;
+                            $persenbar=$ppp/count($program); 
                         } ?>
-                        <span class="chart" data-percent="<?php echo $ppp/count($program); ?>">
+                        <span class="chart" data-percent="<?php echo $persenbar; ?>">
                           <span class="percent"></span>
                         </span>persen
                       </div>
