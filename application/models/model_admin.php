@@ -23,8 +23,6 @@ class model_admin extends CI_Model {
 		}
 	}
 
-
-
 	public function tambah_program($data_penilaian2){
 		//Quert insert into
 		$awal = strtotime($data_penilaian2['start_month']);
@@ -240,18 +238,58 @@ class model_admin extends CI_Model {
 		}
 	}
 
-	public function leaderHead(){
-	}
 
-	/**public function leaderHead(){
-		$havewarrior = $this->db->query("SELECT * FROM (SELECT * FROM cc_program_eval a JOIN baru_warrior b on a.input_detail_c = b.unit WHERE b.status_aktif = '1') a RIGHT JOIN cc_program_eval b a.unit = b.input_user_c RIGHT JOIN unit c on b.input_user_c = c.kode_unit where c.kode_lokasi='HO' GROUP BY c.kode_dir ORDER BY AVG(b.input_realisasi_) DESC");
+	public function leaderHead(){
+		$havewarrior = $this->db->query("SELECT * , (b.SE+b.SW+b.ST+b.SM+b.SP+b.SN) AS 'Total' FROM (SELECT *, CASE WHEN a.metod IS NULL THEN 0 ELSE 14 END AS 'SM', CASE WHEN a.positif IS NULL THEN 0 ELSE 13 END AS 'SP', CASE WHEN a.negatif IS NULL THEN 0 ELSE 13 END AS 'SN'  FROM (SELECT input_user_c,  count(input_metodologi) AS metod, count(input_reinforcement_positif) AS positif, count(input_reinforcement_negatif) AS negatif FROM `cc_program_eval` GROUP BY input_user_c) a RIGHT JOIN
+ (SELECT b.*, CASE WHEN a.status IS NULL THEN 0 ELSE IF(a.status>0,5,0) END AS ST
+        FROM (SELECT unit, SUM(status_aktif) AS status FROM `baru_tim_implementasi_budaya` GROUP BY unit) a RIGHT JOIN 
+            (SELECT b.*, CASE WHEN a.status_aktif IS NULL THEN 0 ELSE 5 END AS SW
+            FROM baru_warrior a RIGHT JOIN
+                (SELECT b.*,CASE WHEN AVG(a.input_realisasi_) IS NULL THEN 0 ELSE IF(AVG(a.input_realisasi_)>=75, 25, 0) END AS SE FROM 
+                    (SELECT * FROM `cc_program_eval` a JOIN `cc_program` b 
+                    on a.input_detail_c=b.cc_detail WHERE b.status='Default')a 
+                 RIGHT JOIN unit b on a.input_user_c = b.kode_unit 
+                 where b.kode_lokasi='HO' 
+                 GROUP BY b.kode_unit 
+                 ORDER BY AVG(a.input_realisasi_) DESC)b
+             on a.unit = b.kode_unit   
+             GROUP BY b.kode_unit) b
+        on a.unit = b.kode_unit) b
+     on a.input_user_c = b.kode_unit)b
+ORDER BY total DESC");
 		if($havewarrior->num_rows() > 0){
 			return $havewarrior->result();
 		}
 		else {
 			return array();
 		}
-	} */
+	}
+
+	public function leaderBranch(){
+		$havewarrior = $this->db->query("SELECT * , (b.SE+b.SW+b.ST+b.SM+b.SP+b.SN) AS 'Total' FROM (SELECT *, CASE WHEN a.metod IS NULL THEN 0 ELSE 14 END AS 'SM', CASE WHEN a.positif IS NULL THEN 0 ELSE 13 END AS 'SP', CASE WHEN a.negatif IS NULL THEN 0 ELSE 13 END AS 'SN'  FROM (SELECT input_user_c,  count(input_metodologi) AS metod, count(input_reinforcement_positif) AS positif, count(input_reinforcement_negatif) AS negatif FROM `cc_program_eval` GROUP BY input_user_c) a RIGHT JOIN
+ (SELECT b.*, CASE WHEN a.status IS NULL THEN 0 ELSE IF(a.status>0,5,0) END AS ST
+        FROM (SELECT unit, SUM(status_aktif) AS status FROM `baru_tim_implementasi_budaya` GROUP BY unit) a RIGHT JOIN 
+            (SELECT b.*, CASE WHEN a.status_aktif IS NULL THEN 0 ELSE 5 END AS SW
+            FROM baru_warrior a RIGHT JOIN
+                (SELECT b.*,CASE WHEN AVG(a.input_realisasi_) IS NULL THEN 0 ELSE IF(AVG(a.input_realisasi_)>=75, 25, 0) END AS SE FROM 
+                    (SELECT * FROM `cc_program_eval` a JOIN `cc_program` b 
+                    on a.input_detail_c=b.cc_detail WHERE b.status='Default')a 
+                 RIGHT JOIN unit b on a.input_user_c = b.kode_unit 
+                 where b.kode_lokasi!='HO' 
+                 GROUP BY b.kode_unit 
+                 ORDER BY AVG(a.input_realisasi_) DESC)b
+             on a.unit = b.kode_unit   
+             GROUP BY b.kode_unit) b
+        on a.unit = b.kode_unit) b
+     on a.input_user_c = b.kode_unit)b
+ORDER BY total DESC");
+		if($havewarrior->num_rows() > 0){
+			return $havewarrior->result();
+		}
+		else {
+			return array();
+		}
+	}
 
 
 	public function warrior(){

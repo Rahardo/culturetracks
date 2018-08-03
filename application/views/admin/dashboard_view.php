@@ -53,6 +53,10 @@ include('connection/conn.php');
 
                     </li>
                     <li>
+                        <a href="<?php echo base_url()?>admin_radar/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Performance</span></a>
+
+                    </li>
+                    <li>
                         <a href="<?php echo base_url()?>admin/dashboard_warrior"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Warrior</span></a>
 
                     </li>
@@ -154,42 +158,103 @@ include('connection/conn.php');
 
                               <tr>
                               <td style="text-align:center" >
-                                
+                              1
                               </td>
                               <td style="text-align:center" >
-                                
+                              <?php echo $leaderhead[0]->kode_unit; ?>
                               </td>
                               <td style="text-align:center" >
-                                
-                              </td>
-                            </tr>
-                            
-                            <tr>
-                              <td style="text-align:center" >
-                                
-                              </td>
-                              <td style="text-align:center" >
-                                
-                              </td>
-                              <td style="text-align:center" >
-                                
+                              <?php echo $leaderhead[0]->Total; ?> 
                               </td>
                             </tr>
                             
                             <tr>
                               <td style="text-align:center" >
-                                
+                                2
                               </td>
                               <td style="text-align:center" >
-                                
+                              <?php echo $leaderhead[1]->kode_unit; ?>
                               </td>
                               <td style="text-align:center" >
-                                
+                              <?php echo $leaderhead[1]->Total; ?>  
+                              </td>
+                            </tr>
+                            
+                            <tr>
+                              <td style="text-align:center" >
+                                3
+                              </td>
+                              <td style="text-align:center" >
+                              <?php echo $leaderhead[2]->kode_unit; ?>
+                              </td>
+                              <td style="text-align:center" >
+                              <?php echo $leaderhead[2]->Total; ?>  
                               </td>
                             </tr>
 
                       </tbody>
                     </table>
+                    <button type="button" 
+                            class="btn btn-block btn-outline btn-primary" 
+                            data-toggle="modal" 
+                            data-target="#myModal">
+                    See All...
+                    </button>
+
+                    <div class="modal inmodal" id="myModal" 
+                                             tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content animated bounceInRight">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            <span class="sr-only">Close</span>
+                                                        </button>
+                                                        
+                                                        <i class="fa fa-laptop modal-icon"></i>
+                                                        <h4 class="modal-title">Head Office Leaderboard</h4>
+                                                        <small class="font-bold">urutan skor dari masing-masing unit yang masuk dalam kategori head office.</small>
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        <form action="<?php echo base_url(). 'admin/tambah_label'?>" method="post">
+                                                            <table class="table table-hover table-bordered" style="font-size:14px">
+                                                        <thead>
+                                                          <tr>
+                                                            <th style="width:20%; text-align:center">Rank</th>
+                                                            <th style="text-align:center">Unit Name</th>
+                                                            <th style="text-align:center">Score</th>
+                                                            
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>       
+                                                             
+
+                                                                <tr>
+                                                                <td style="text-align:center" >
+                                                                1
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <?php echo $leaderhead[0]->kode_unit; ?>
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <?php echo $leaderhead[0]->Total; ?> 
+                                                                </td>
+                                                              </tr>
+
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                   </div>
                 </div>
               </div>
@@ -218,37 +283,187 @@ include('connection/conn.php');
 
                               <tr>
                               <td style="text-align:center" >
-                                
+                                1
                               </td>
                               <td style="text-align:center" >
-                                
+                              <?php echo $leaderbranch[0]->kode_unit; ?>
                               </td>
                               <td style="text-align:center" >
-                                
-                              </td>
-                            </tr>
-                            
-                            <tr>
-                              <td style="text-align:center" >
-                                
-                              </td>
-                              <td style="text-align:center" >
-                                
-                              </td>
-                              <td style="text-align:center" >
-                                
+                              <?php echo $leaderbranch[0]->Total; ?>  
                               </td>
                             </tr>
                             
                             <tr>
                               <td style="text-align:center" >
-                                
+                                2
                               </td>
                               <td style="text-align:center" >
-                                
+                              <?php echo $leaderbranch[1]->kode_unit; ?>  
                               </td>
                               <td style="text-align:center" >
-                                
+                              <?php echo $leaderbranch[1]->Total; ?>  
+                              </td>
+                            </tr>
+                            
+                            <tr>
+                              <td style="text-align:center" >
+                                3
+                              </td>
+                              <td style="text-align:center" >
+                              <?php echo $leaderbranch[2]->kode_unit; ?>  
+                              </td>
+                              <td style="text-align:center" >
+                              <?php echo $leaderbranch[2]->Total; ?>  
+                              </td>
+                            </tr>
+
+                      </tbody>
+                    </table>
+
+
+                    <button type="button" 
+                            class="btn btn-block btn-outline btn-primary" 
+                            data-toggle="modal" 
+                            data-target="#myModal1">
+                    See All...
+                    </button>
+
+                    <div class="modal inmodal" id="myModal1" 
+                                             tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content animated bounceInRight">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            <span class="sr-only">Close</span>
+                                                        </button>
+                                                        
+                                                        <i class="fa fa-laptop modal-icon"></i>
+                                                        <h4 class="modal-title">Branch Office Leaderboard</h4>
+                                                        <small class="font-bold">urutan skor dari masing-masing unit yang masuk dalam kategori branch office.</small>
+                                                    </div>
+
+                                                    <div class="modal-body">
+                                                        <form action="<?php echo base_url(). 'admin/tambah_label'?>" method="post">
+                                                            <table class="table table-hover table-bordered" style="font-size:14px">
+                                                        <thead>
+                                                          <tr>
+                                                            <th style="width:20%; text-align:center">Rank</th>
+                                                            <th style="text-align:center">Unit Name</th>
+                                                            <th style="text-align:center">Score</th>
+                                                            
+                                                          </tr>
+                                                        </thead>
+                                                        <tbody>       
+                                                             
+
+                                                                <tr>
+                                                                <td style="text-align:center" >
+                                                                1
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <?php echo $leaderbranch[0]->kode_unit; ?>
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <?php echo $leaderbranch[0]->Total; ?> 
+                                                                </td>
+                                                              </tr>
+
+                                                        </tbody>
+                                                      </table>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-2 col-sm-2    col-xs-12">
+                <a href="<?php echo base_url()?>admin_radar/index">
+                <button class="widget red-bg p-lg text-center" type="button" data-target="#perform">
+                <div class="m-b-md">          
+                                <i class="fa fa-bell fa-4x"></i>
+                                <h1 class="m-xs"></h1>
+                                <h3 class="font-bold no-margins">
+                                    <span>Dashboard Performance</span>
+                                </h3>
+                            </div>
+                          </button>
+                </a>
+              </div>
+
+              <div class="col-md-5 col-sm-5    col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2 style='font-weight: bold'>Top 3 Warrior Head Office</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <table class="table table-hover table-bordered" style="font-size:14px">
+                      <thead>
+                        <tr>
+                          <th style="width:20%; text-align:center">Rank</th>
+                          <th style="text-align:center">Nopeg</th>
+                          <th style="text-align:center">Unit</th>
+                          <th style="text-align:center">Score</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>       
+                           
+
+                              <tr>
+                              <td style="text-align:center" >
+                              1
+                              </td>
+                              <td style="text-align:center" >
+                              
+                              </td>
+                              <td style="text-align:center" >
+
+                              </td>
+                              <td style="text-align:center" >
+ 
+                              </td>
+                            </tr>
+                            
+                            <tr>
+                              <td style="text-align:center" >
+                                2
+                              </td>
+                              <td style="text-align:center" >
+                              
+                              </td>
+                              <td style="text-align:center" >
+
+                              </td>
+                              <td style="text-align:center" >
+
+                              </td>
+                            </tr>
+                            
+                            <tr>
+                              <td style="text-align:center" >
+                                3
+                              </td>
+                              <td style="text-align:center" >
+                              
+                              </td>
+                              <td style="text-align:center" >
+
+                              </td>
+                              <td style="text-align:center" >
+  
                               </td>
                             </tr>
 
@@ -258,7 +473,80 @@ include('connection/conn.php');
                 </div>
               </div>
 
-               <!-- <div><?php echo $leaderhead[0]->nopeg; ?></div> -->
+
+              <div class="col-md-5 col-sm-5    col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2 style='font-weight: bold'>Top 3 Warrior Branch Office</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <table class="table table-hover table-bordered" style="font-size:14px">
+                      <thead>
+                        <tr>
+                          <th style="width:20%; text-align:center">Rank</th>
+                          <th style="text-align:center">Nopeg</th>
+                          <th style="text-align:center">Unit</th>
+                          <th style="text-align:center">Score</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>       
+                           
+
+                              <tr>
+                              <td style="text-align:center" >
+                              1
+                              </td>
+                              <td style="text-align:center" >
+                              
+                              </td>
+                              <td style="text-align:center" >
+
+                              </td>
+                              <td style="text-align:center" >
+
+                              </td>
+                            </tr>
+                            
+                            <tr>
+                              <td style="text-align:center" >
+                                2
+                              </td>
+                              <td style="text-align:center" >
+                              
+                              </td>
+                              <td style="text-align:center" >
+
+                              </td>
+                              <td style="text-align:center" >
+ 
+                              </td>
+                            </tr>
+                            
+                            <tr>
+                              <td style="text-align:center" >
+                                3
+                              </td>
+                              <td style="text-align:center" >
+                              
+                              </td>
+                              <td style="text-align:center" >
+
+                              </td>
+                              <td style="text-align:center" >
+ 
+                              </td>
+                            </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
 
           <div class="row  border-bottom white-bg dashboard-header">
                 <div class="row">
@@ -369,7 +657,12 @@ include('connection/conn.php');
                                 <i class="fa fa-circle" style="color:red"></i>
                               </td>
                               <td>
-
+                            <!--<?php 
+                            $ppp=0; for ($i=0; $i <count($program) ; $i++) {
+                            if ($program[$i]->persen_realisasi) $ppp=$ppp+$program[$i]->persen_realisasi;
+                            $persenbar=$ppp/count($program); 
+                            } ?>    
+                            <?php echo $persenbar; ?> -->
                               </td>
                             </tr>
                             <?php                        

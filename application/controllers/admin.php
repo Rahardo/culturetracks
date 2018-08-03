@@ -47,6 +47,7 @@ class admin extends CI_Controller {
 		$data['progreshead'] = $this->model_admin->progresHead();
 		$data['progresbranch'] = $this->model_admin->progresBranch();
 		$data['leaderhead'] = $this->model_admin->leaderHead();
+		$data['leaderbranch'] = $this->model_admin->leaderBranch();
 
 
 		//print_r($data['progres']);exit(); 
@@ -94,6 +95,8 @@ class admin extends CI_Controller {
 		//print_r($data); 
 		$this->load->view('admin/list_program',$data);
 	}
+
+
 	public function tambah_program(){
 		//sebelum mengeksekusi query
 		$this->form_validation->set_rules('desc');

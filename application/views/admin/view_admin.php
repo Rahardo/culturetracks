@@ -1,3 +1,7 @@
+<?php
+session_start();
+include('connection/conn.php');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -5,11 +9,18 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/png" href="<?php echo base_url()?>assets/gi.ico">
     <title>Garuda Indonesia Group</title>
 
     <link href="<?php echo base_url()?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url()?>font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="<?php echo base_url()?>css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="<?php echo base_url()?>js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
 
     <link href="<?php echo base_url()?>css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url()?>css/style.css" rel="stylesheet">
@@ -18,6 +29,71 @@
 
 <body class="canvas-menu">
     <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle" src="<?php echo base_url()?>img/profile_small.jpg" />
+                             </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo $this->session->userdata('username')?></strong>
+                             </span> <span class="text-muted text-xs block">Admin <b class="caret"></b></span> </span> </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="<?php echo base_url()?>admin/logout">Logout</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            GI
+                        </div>
+                    </li>
+                    <li class="active">
+                        <a href="<?php echo base_url()?>admin/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Progress</span></a>
+
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url()?>admin_radar/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Performance</span></a>
+
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url()?>admin/daftar_nilai_akhir"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Performance</span></a>
+
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url()?>admin/dashboard_warrior"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Warrior</span></a>
+
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url()?>admin/dashboard_implementasi_budaya"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard TIB</span></a>
+
+                    </li>
+                    <li >
+                        <a href=""><i class="fa fa-edit"></i> <span class="nav-label">Culture Programs</span><span class="fa fa-caret-down pull-right"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="<?php echo base_url()?>admin/program"><i class="fa fa-pencil"></i> List Program</a></li>
+                            <li><a href="<?php echo base_url()?>admin/tambah_program"><i class="fa fa-bar-chart-o"></i> Tambah Program</a></li>
+                            <!-- <li><a href="<?php echo base_url()?>admin/progress_program"><i class="fa fa-bar-chart-o"></i> Progress Program</a></li> -->
+                        </ul>
+                    </li>
+                    <li >
+                        <a href="<?php echo base_url()?>admin/daftar_user"><i class="fa fa-users"></i> <span class="nav-label">Daftar User</span></a>
+
+                    </li>
+                    <li >
+                        <a href="<?php echo base_url()?>admin/daftar_warrior"><i class="fa fa-users"></i> <span class="nav-label">Daftar Warrior</span></a>
+
+                    </li>
+                    <li >
+                        <a href="<?php echo base_url()?>admin/daftar_tib"><i class="fa fa-users"></i> <span class="nav-label">Daftar TIB</span></a>
+
+                    </li>
+                    <li>
+                        <!-- <a href="<?php echo base_url()?>admin/setting"><i class="fa fa-cog"></i> <span class="nav-label">Setting</span>< -->
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
         <!--<nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
                 <a class="close-canvas-menu"><i class="fa fa-times"></i></a>
@@ -84,17 +160,20 @@
                         </form>
                     </div>-->
 
-                    <ul class="nav navbar-top-links navbar-right">
-                        <li>
-                            <span class="m-r-sm text-muted welcome-message">Garuda Pulse Check.</span>
-                        </li>
-
-                        <li>
-                            <a href="<?php echo base_url()?>admin/logout">
-                                <i class="fa fa-sign-out"></i> Log out
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="navbar-header">
+              <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+              
+          </div>
+              <ul class="nav navbar-top-links navbar-right">
+                  <li>
+                      <span class="m-r-sm text-muted welcome-message">Welcome to Garuda Culture Program.</span>
+                  </li>
+                  <li>
+                      <a href="<?php echo base_url()?>admin/logout">
+                          <i class="fa fa-sign-out"></i> Log out
+                      </a>
+                  </li>
+              </ul>
                 </nav>
             </div>
 

@@ -159,7 +159,6 @@ class User extends CI_Controller {
 								'input_gap'				=> $gap,
 								'input_bulan'			=> $month,
 								'last_modified_c'		=> $data
-
 						);
 				//print_r($data_program);exit();
 				$this->model_users->evaluasi_data($data_program);
