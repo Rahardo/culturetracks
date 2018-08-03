@@ -27,7 +27,7 @@ include('connection/conn.php');
     
 </head>
 
-<body class="canvas-menu">
+<body>
     <div id="wrapper">
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse">
@@ -47,16 +47,12 @@ include('connection/conn.php');
                             GI
                         </div>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="<?php echo base_url()?>admin/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Progress</span></a>
 
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="<?php echo base_url()?>admin_radar/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Performance</span></a>
-
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url()?>admin/daftar_nilai_akhir"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Performance</span></a>
 
                     </li>
                     <li>
@@ -182,7 +178,7 @@ include('connection/conn.php');
                     <h2>Garuda Indonesia Group</h2>
                     <ol class="breadcrumb">
                         <li class="active">
-                            <a href="<?php echo base_url()?>admin">Home</a>
+                            <a href="<?php echo base_url()?>admin/index">Home</a>
                         </li>
                         <li>
                             <a>Admin</a>
@@ -559,7 +555,7 @@ include('connection/conn.php');
 
                                 <div class="m-t-sm">
                                     <div class="row">                                
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgJKTDC[0]->Evidence,2,".","."); ?>
                                                 data-min="0" 
@@ -570,7 +566,7 @@ include('connection/conn.php');
                                                 data-readonly="true">                  
                                             <div class="knob-label">JKTDC</div>
                                         </div>
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgJKTDE[0]->Evidence,2,".","."); ?>                   
                                                 data-min="0" 
@@ -581,7 +577,7 @@ include('connection/conn.php');
                                                 data-readonly="true">                  
                                             <div class="knob-label">JKTDE</div>
                                         </div>
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgJKTDF[0]->Evidence,2,".","."); ?>                  
                                                 data-min="0" 
@@ -592,7 +588,7 @@ include('connection/conn.php');
                                                 data-readonly="true">                  
                                             <div class="knob-label">JKTDF</div>
                                         </div>
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgJKTDG[0]->Evidence,2,".","."); ?>                  
                                                 data-min="0" 
@@ -606,7 +602,7 @@ include('connection/conn.php');
                                     </div>
 
                                     <div class="row">                                
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgJKTDI[0]->Evidence,2,".","."); ?>                  
                                                 data-min="0" 
@@ -617,7 +613,7 @@ include('connection/conn.php');
                                                 data-readonly="true">                  
                                             <div class="knob-label">JKTDI</div>
                                         </div>
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgJKTDN[0]->Evidence,2,".","."); ?>                  
                                                 data-min="0" 
@@ -628,7 +624,7 @@ include('connection/conn.php');
                                                 data-readonly="true">                  
                                             <div class="knob-label">JKTDN</div>
                                         </div>
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgJKTDO[0]->Evidence,2,".","."); ?>                  
                                                 data-min="0" 
@@ -642,7 +638,7 @@ include('connection/conn.php');
                                     </div>
 
                                     <div class="row">                                
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgJKTDR[0]->Evidence,2,".","."); ?>                  
                                                 data-min="0" 
@@ -653,7 +649,7 @@ include('connection/conn.php');
                                                 data-readonly="true">                  
                                             <div class="knob-label">JKTDR</div>
                                         </div>
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgJKTDZ[0]->Evidence,2,".","."); ?>                  
                                                 data-min="0" 
@@ -690,7 +686,7 @@ include('connection/conn.php');
                                 <div class="m-t-sm">
                                     <div class="row">
                                         <!-- SINAM -->
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgSINAM[0]->Evidence,2,".","."); ?>
                                                 data-min="0" 
@@ -703,7 +699,7 @@ include('connection/conn.php');
                                         </div>
 
                                         <!-- SYDAM -->
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgSYDAM[0]->Evidence,2,".","."); ?>
                                                 data-min="0" 
@@ -716,7 +712,7 @@ include('connection/conn.php');
                                         </div>
 
                                         <!-- TYOAM -->
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgTYOAM[0]->Evidence,2,".","."); ?>
                                                 data-min="0" 
@@ -729,7 +725,7 @@ include('connection/conn.php');
                                         </div>
 
                                         <!-- SHAAM -->
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgSHAAM[0]->Evidence,2,".","."); ?>
                                                 data-min="0" 
@@ -744,7 +740,7 @@ include('connection/conn.php');
 
                                     <div class="row">
                                         <!-- MESAM -->
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgMESAM[0]->Evidence,2,".","."); ?>
                                                 data-min="0" 
@@ -757,7 +753,7 @@ include('connection/conn.php');
                                         </div>
 
                                         <!-- SUBAM -->
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgSUBAM[0]->Evidence,2,".","."); ?>
                                                 data-min="0" 
@@ -770,7 +766,7 @@ include('connection/conn.php');
                                         </div>
                                         
                                         <!-- UPGAM -->
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgUPGAM[0]->Evidence,2,".","."); ?>
                                                 data-min="0" 
@@ -783,7 +779,7 @@ include('connection/conn.php');
                                         </div>
 
                                         <!-- JKTAM -->
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgJKTAM[0]->Evidence,2,".","."); ?>              
                                                 data-min="0" 
@@ -798,7 +794,7 @@ include('connection/conn.php');
 
                                     <div class="row">
                                         <!-- LON&AMS -->
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgLON_AMS[0]->Evidence,2,".","."); ?>
                                                 data-min="0" 
@@ -811,7 +807,7 @@ include('connection/conn.php');
                                         </div>
 
                                         <!-- JED&MED -->
-                                        <div class="col-xs-6 col-md-3 text-center">
+                                        <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgJED_MED[0]->Evidence,2,".","."); ?>
                                                 data-min="0" 
@@ -836,11 +832,15 @@ include('connection/conn.php');
                 </div>
             </div>
 
+
             <div class="footer">
                     <strong>Copyright</strong> Garuda Indonesia &copy; 2017
             </div>
         </div>
     </div>
+
+
+
 
     <!-- Mainly scripts -->
     <script src="<?php echo base_url()?>js/jquery-2.1.1.js"></script>
