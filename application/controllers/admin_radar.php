@@ -53,6 +53,9 @@ class admin_radar extends CI_Controller
 		$data['avgSYDAM']	= $this->model_users2->avgSYDAM();
 		$data['avgLON_AMS'] = $this->model_users2->avgLON_AMS();
 		$data['avgJED_MED'] = $this->model_users2->avgJED_MED();
+		$data['ambilRadar'] = $this->model_users2->ambilRadar();
+		$data['ambilRadarBranch'] = $this->model_users2->ambilRadarBranch();
+
 		$this->load->view('admin/view_admin',$data);
 	}
 

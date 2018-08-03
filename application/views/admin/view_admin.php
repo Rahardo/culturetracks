@@ -558,8 +558,8 @@ include('connection/conn.php');
                                         <div class="col-xs-6 col-md-6 text-center">
                                             <input type="text" class="knob"                                             
                                                 value=<?php echo number_format($avgJKTDC[0]->Evidence,2,".","."); ?>
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?>
+                                                data-min="<?php echo $total_label[0]->Jumlah;?>" 
+                                                data-max="100"
                                                 data-width="90" 
                                                 data-height="100" 
                                                 data-fgColor= "#4286f4"
@@ -919,11 +919,11 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //JKTDC
         var radarData = {
-        labels: ["<?php echo $dirJKTDC[0]->Unit; ?>", 
-                 "<?php echo $dirJKTDC[1]->Unit; ?>", 
-                  "<?php echo $dirJKTDC[2]->Unit; ?>", 
-                 "<?php echo $dirJKTDC[3]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadar[0]->Unit; ?>", 
+                 "<?php echo $ambilRadar[1]->Unit; ?>", 
+                  "<?php echo $ambilRadar[2]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -933,10 +933,9 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $dirJKTDC[0]->bukti; ?>,
-                       <?php echo $dirJKTDC[1]->bukti; ?>,
-                       <?php echo $dirJKTDC[2]->bukti; ?>,
-                       <?php echo $dirJKTDC[3]->bukti; ?>]
+                data: [<?php echo $ambilRadar[0]->bukti; ?>,
+                       <?php echo $ambilRadar[1]->bukti; ?>,
+                       <?php echo $ambilRadar[2]->bukti; ?>]
             }
         ]
     };
@@ -970,10 +969,10 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        // JKTDE
         var radarData = {
-        labels: ["<?php echo $dirJKTDE[0]->Unit; ?>", 
-                 "<?php echo $dirJKTDE[1]->Unit; ?>", 
-                 "<?php echo $dirJKTDE[2]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadar[3]->Unit; ?>",
+                 "<?php echo $ambilRadar[4]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -983,9 +982,8 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $dirJKTDE[0]->bukti; ?>,
-                       <?php echo $dirJKTDE[1]->bukti; ?>,
-                       <?php echo $dirJKTDE[2]->bukti; ?>]
+                data: [<?php echo $ambilRadar[3]->bukti; ?>, 
+                       <?php echo $ambilRadar[4]->bukti; ?>]
             }
         ]
     };
@@ -1019,11 +1017,12 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //JKTDF
         var radarData = {
-        labels: ["<?php echo $dirJKTDF[0]->Unit; ?>", 
-                 "<?php echo $dirJKTDF[1]->Unit; ?>",
-                 "<?php echo $dirJKTDF[2]->Unit; ?>",
-                 "<?php echo $dirJKTDF[3]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadar[5]->Unit; ?>", 
+                 "<?php echo $ambilRadar[6]->Unit; ?>",
+                 "<?php echo $ambilRadar[7]->Unit; ?>",
+                 "<?php echo $ambilRadar[8]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1033,10 +1032,10 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $dirJKTDF[0]->bukti; ?>, 
-                       <?php echo $dirJKTDF[1]->bukti; ?>, 
-                       <?php echo $dirJKTDF[2]->bukti; ?>, 
-                       <?php echo $dirJKTDF[3]->bukti; ?>]
+                data: [<?php echo $ambilRadar[5]->bukti; ?>, 
+                       <?php echo $ambilRadar[6]->bukti; ?>, 
+                       <?php echo $ambilRadar[7]->bukti; ?>, 
+                       <?php echo $ambilRadar[8]->bukti; ?>]
             }
         ]
     };
@@ -1070,11 +1069,11 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //JKTDG
         var radarData = {
-        labels: ["<?php echo $dirJKTDG[0]->Unit; ?>", 
-                 "<?php echo $dirJKTDG[1]->Unit; ?>", 
-                 "<?php echo $dirJKTDG[2]->Unit; ?>",
-                 "<?php echo $dirJKTDG[3]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadar[9]->Unit; ?>", 
+                 "<?php echo $ambilRadar[10]->Unit; ?>", 
+                 "<?php echo $ambilRadar[11]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1084,10 +1083,9 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $dirJKTDG[0]->bukti; ?>, 
-                       <?php echo $dirJKTDG[1]->bukti; ?>, 
-                       <?php echo $dirJKTDG[2]->bukti; ?>,
-                       <?php echo $dirJKTDG[3]->bukti; ?>]
+                data: [<?php echo $ambilRadar[9]->bukti; ?>, 
+                       <?php echo $ambilRadar[10]->bukti; ?>, 
+                       <?php echo $ambilRadar[11]->bukti; ?>]
             }
         ]
     };
@@ -1121,11 +1119,13 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //JKTDI
         var radarData = {
-        labels: ["<?php echo $dirJKTDI[0]->Unit; ?>", 
-                 "<?php echo $dirJKTDI[1]->Unit; ?>", 
-                 "<?php echo $dirJKTDI[2]->Unit; ?>",
-                 "<?php echo $dirJKTDI[3]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadar[12]->Unit; ?>", 
+                 "<?php echo $ambilRadar[13]->Unit; ?>", 
+                 "<?php echo $ambilRadar[14]->Unit; ?>",
+                 "<?php echo $ambilRadar[15]->Unit; ?>",
+                 "<?php echo $ambilRadar[16]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1135,10 +1135,11 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $dirJKTDI[0]->bukti; ?>, 
-                       <?php echo $dirJKTDI[1]->bukti; ?>, 
-                       <?php echo $dirJKTDI[2]->bukti; ?>, 
-                       <?php echo $dirJKTDI[3]->bukti; ?>]
+                data: [<?php echo $ambilRadar[12]->bukti; ?>, 
+                       <?php echo $ambilRadar[13]->bukti; ?>, 
+                       <?php echo $ambilRadar[14]->bukti; ?>, 
+                       <?php echo $ambilRadar[15]->bukti; ?>, 
+                       <?php echo $ambilRadar[16]->bukti; ?>]
             }
         ]
     };
@@ -1172,11 +1173,12 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //JKTDN
         var radarData = {
-        labels: ["<?php echo $dirJKTDN[0]->Unit; ?>", "<?php echo $dirJKTDN[1]->Unit; ?>",
-                 "<?php echo $dirJKTDN[2]->Unit; ?>", "<?php echo $dirJKTDN[3]->Unit; ?>",
-                 "<?php echo $dirJKTDN[4]->Unit; ?>", "<?php echo $dirJKTDN[5]->Unit; ?>",
-                 "<?php echo $dirJKTDN[6]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadar[17]->Unit; ?>", "<?php echo $ambilRadar[18]->Unit; ?>",
+                 "<?php echo $ambilRadar[19]->Unit; ?>", "<?php echo $ambilRadar[20]->Unit; ?>",
+                 "<?php echo $ambilRadar[21]->Unit; ?>", "<?php echo $ambilRadar[21]->Unit; ?>",
+                 "<?php echo $ambilRadar[23]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1186,10 +1188,10 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $dirJKTDN[0]->bukti ?>, <?php echo $dirJKTDN[1]->bukti ?>,
-                       <?php echo $dirJKTDN[2]->bukti; ?>, <?php echo $dirJKTDN[3]->bukti; ?>,
-                       <?php echo $dirJKTDN[4]->bukti; ?>, <?php echo $dirJKTDN[5]->bukti; ?>,
-                       <?php echo $dirJKTDN[6]->bukti; ?>]
+                data: [<?php echo $ambilRadar[17]->bukti ?>, <?php echo $ambilRadar[18]->bukti ?>,
+                       <?php echo $ambilRadar[19]->bukti; ?>, <?php echo $ambilRadar[20]->bukti; ?>,
+                       <?php echo $ambilRadar[21]->bukti; ?>, <?php echo $ambilRadar[22]->bukti; ?>,
+                       <?php echo $ambilRadar[23]->bukti; ?>]
             }
         ]
     };
@@ -1223,10 +1225,11 @@ include('connection/conn.php');
 
 <script type="text/javascript">
     $(function () {
+        //JKTDO
         var radarData = {
-        labels: ["<?php echo $dirJKTDO[0]->Unit; ?>", 
-                 "<?php echo $dirJKTDO[1]->Unit; ?>", 
-                 "<?php echo $dirJKTDO[2]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadar[24]->Unit; ?>", 
+                 "<?php echo $ambilRadar[25]->Unit; ?>", 
+                 "<?php echo $ambilRadar[26]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1236,9 +1239,9 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $dirJKTDO[0]->bukti; ?>,
-                       <?php echo $dirJKTDO[1]->bukti; ?>,
-                       <?php echo $dirJKTDO[2]->bukti; ?>]
+                data: [<?php echo $ambilRadar[24]->bukti; ?>,
+                       <?php echo $ambilRadar[25]->bukti; ?>,
+                       <?php echo $ambilRadar[26]->bukti; ?>]
             }
         ]
     };
@@ -1272,10 +1275,10 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //JKTDR
         var radarData = {
-        labels: ["<?php echo $dirJKTDR[0]->Unit; ?>", 
-                 "<?php echo $dirJKTDR[1]->Unit; ?>", 
-                 "<?php echo $dirJKTDR[2]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadar[27]->Unit; ?>", 
+                 "<?php echo $ambilRadar[28]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1285,9 +1288,8 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $dirJKTDR[0]->bukti; ?>,
-                       <?php echo $dirJKTDR[1]->bukti; ?>,
-                       <?php echo $dirJKTDR[2]->bukti; ?>]
+                data: [<?php echo $ambilRadar[27]->bukti; ?>,
+                       <?php echo $ambilRadar[28]->bukti; ?>]
             }
         ]
     };
@@ -1322,11 +1324,12 @@ include('connection/conn.php');
     <script type="text/javascript">
     $(function () {
         var radarData = {
-        labels: ["<?php echo $dirJKTDZ[0]->Unit; ?>", 
-                 "<?php echo $dirJKTDZ[1]->Unit; ?>", 
-                 "<?php echo $dirJKTDZ[2]->Unit; ?>",
-                 "<?php echo $dirJKTDZ[3]->Unit; ?>",
-                 "<?php echo $dirJKTDZ[4]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadar[29]->Unit; ?>", 
+                 "<?php echo $ambilRadar[30]->Unit; ?>", 
+                 "<?php echo $ambilRadar[31]->Unit; ?>",
+                 "<?php echo $ambilRadar[32]->Unit; ?>",
+                 "<?php echo $ambilRadar[33]->Unit; ?>",
+                 "<?php echo $ambilRadar[34]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1336,11 +1339,12 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $dirJKTDZ[0]->bukti; ?>,
-                       <?php echo $dirJKTDZ[1]->bukti; ?>,
-                       <?php echo $dirJKTDZ[2]->bukti; ?>,
-                       <?php echo $dirJKTDZ[3]->bukti; ?>,
-                       <?php echo $dirJKTDZ[4]->bukti; ?>]
+                data: [<?php echo $ambilRadar[29]->bukti; ?>,
+                       <?php echo $ambilRadar[30]->bukti; ?>,
+                       <?php echo $ambilRadar[31]->bukti; ?>,
+                       <?php echo $ambilRadar[32]->bukti; ?>,
+                       <?php echo $ambilRadar[33]->bukti; ?>,
+                       <?php echo $ambilRadar[34]->bukti; ?>]
             }
         ]
     };
@@ -1374,10 +1378,12 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //SHAAM
         var radarData = {
-        labels: ["<?php echo $unitSHAAM[0]->Unit; ?>", 
-                 "<?php echo $unitSHAAM[1]->Unit; ?>", 
-                 "<?php echo $unitSHAAM[2]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadarBranch[24]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[25]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[26]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[27]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1387,9 +1393,10 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $unitSHAAM[0]->bukti; ?>, 
-                       <?php echo $unitSHAAM[1]->bukti; ?>, 
-                       <?php echo $unitSHAAM[2]->bukti; ?>]
+                data: [<?php echo $ambilRadarBranch[24]->bukti; ?>, 
+                       <?php echo $ambilRadarBranch[25]->bukti; ?>, 
+                       <?php echo $ambilRadarBranch[26]->bukti; ?>, 
+                       <?php echo $ambilRadarBranch[27]->bukti; ?>]
             }
         ]
     };
@@ -1423,11 +1430,13 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //SINAM
         var radarData = {
-        labels: ["<?php echo $unitSINAM[0]->Unit; ?>", 
-                 "<?php echo $unitSINAM[1]->Unit; ?>",
-                 "<?php echo $unitSINAM[2]->Unit; ?>",
-                 "<?php echo $unitSINAM[3]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadarBranch[28]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[29]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[30]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[31]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[32]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1437,10 +1446,11 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $unitSINAM[0]->bukti ?>, 
-                       <?php echo $unitSINAM[1]->bukti ?>,
-                       <?php echo $unitSINAM[2]->bukti ?>,
-                       <?php echo $unitSINAM[3]->bukti; ?>]
+                data: [<?php echo $ambilRadarBranch[28]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[29]->bukti ?>,
+                       <?php echo $ambilRadarBranch[30]->bukti ?>,
+                       <?php echo $ambilRadarBranch[31]->bukti; ?>,
+                       <?php echo $ambilRadarBranch[32]->bukti; ?>]
             }
         ]
     };
@@ -1474,12 +1484,14 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //TYOAM
         var radarData = {
-        labels: ["<?php echo $unitTYOAM[0]->Unit; ?>", 
-                 "<?php echo $unitTYOAM[1]->Unit; ?>",
-                 "<?php echo $unitTYOAM[2]->Unit; ?>", 
-                 "<?php echo $unitTYOAM[3]->Unit; ?>",
-                 "<?php echo $unitTYOAM[4]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadarBranch[54]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[55]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[56]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[57]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[58]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[59]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1489,11 +1501,12 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $unitTYOAM[0]->bukti ?>, 
-                       <?php echo $unitTYOAM[1]->bukti ?>,
-                       <?php echo $unitTYOAM[2]->bukti ?>, 
-                       <?php echo $unitTYOAM[3]->bukti ?>,
-                       <?php echo $unitTYOAM[4]->bukti ?>]
+                data: [<?php echo $ambilRadarBranch[54]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[55]->bukti ?>,
+                       <?php echo $ambilRadarBranch[56]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[57]->bukti ?>,
+                       <?php echo $ambilRadarBranch[58]->bukti ?>,
+                       <?php echo $ambilRadarBranch[59]->bukti ?>]
             }
         ]
     };
@@ -1572,15 +1585,25 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //MESAM
         var radarData = {
-        labels: ["<?php echo $unitMESAM[0]->Unit; ?>", 
-                 "<?php echo $unitMESAM[1]->Unit; ?>",
-                 "<?php echo $unitMESAM[2]->Unit; ?>", 
-                 "<?php echo $unitMESAM[3]->Unit; ?>",
-                 "<?php echo $unitMESAM[4]->Unit; ?>", 
-                 "<?php echo $unitMESAM[5]->Unit; ?>",
-                 "<?php echo $unitMESAM[6]->Unit; ?>", 
-                 "<?php echo $unitMESAM[7]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadarBranch[6]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[7]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[8]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[9]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[10]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[11]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[12]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[13]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[14]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[15]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[16]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[17]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[18]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[19]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[20]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[21]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[22]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1590,14 +1613,23 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $unitMESAM[0]->bukti ?>, 
-                       <?php echo $unitMESAM[1]->bukti ?>,
-                       <?php echo $unitMESAM[2]->bukti ?>, 
-                       <?php echo $unitMESAM[3]->bukti ?>,
-                       <?php echo $unitMESAM[4]->bukti ?>, 
-                       <?php echo $unitMESAM[5]->bukti ?>,
-                       <?php echo $unitMESAM[6]->bukti ?>, 
-                       <?php echo $unitMESAM[7]->bukti ?>]
+                data: [<?php echo $ambilRadarBranch[6]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[7]->bukti ?>,
+                       <?php echo $ambilRadarBranch[8]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[9]->bukti ?>,
+                       <?php echo $ambilRadarBranch[10]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[11]->bukti ?>,
+                       <?php echo $ambilRadarBranch[12]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[13]->bukti ?>,
+                       <?php echo $ambilRadarBranch[14]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[15]->bukti ?>,
+                       <?php echo $ambilRadarBranch[16]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[17]->bukti ?>,
+                       <?php echo $ambilRadarBranch[18]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[19]->bukti ?>,
+                       <?php echo $ambilRadarBranch[20]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[21]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[22]->bukti ?>],
             }
         ]
     };
@@ -1611,7 +1643,7 @@ include('connection/conn.php');
         angleLineWidth: 1,
         pointLabelFontFamily: "'Arial'",
         pointLabelFontStyle: "normal",
-        pointLabelFontSize: 10,
+        pointLabelFontSize: 7,
         pointLabelFontColor: "#666",
         pointDot: true,
         pointDotRadius: 3,
@@ -1631,14 +1663,25 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //SUBAM
         var radarData = {
-        labels: ["<?php echo $unitSUBAM[0]->Unit; ?>", 
-                 "<?php echo $unitSUBAM[1]->Unit; ?>",
-                 "<?php echo $unitSUBAM[2]->Unit; ?>", 
-                 "<?php echo $unitSUBAM[3]->Unit; ?>",
-                 "<?php echo $unitSUBAM[4]->Unit; ?>", 
-                 "<?php echo $unitSUBAM[5]->Unit; ?>",
-                 "<?php echo $unitSUBAM[6]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadarBranch[33]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[34]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[35]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[36]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[37]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[38]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[39]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[40]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[41]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[42]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[43]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[44]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[45]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[46]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[47]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[48]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[49]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1648,13 +1691,23 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $unitSUBAM[0]->bukti ?>, 
-                       <?php echo $unitSUBAM[1]->bukti ?>,
-                       <?php echo $unitSUBAM[2]->bukti ?>, 
-                       <?php echo $unitSUBAM[3]->bukti ?>,
-                       <?php echo $unitSUBAM[4]->bukti ?>, 
-                       <?php echo $unitSUBAM[5]->bukti ?>,
-                       <?php echo $unitSUBAM[6]->bukti ?>]
+                data: [<?php echo $ambilRadarBranch[33]->bukti ?>,
+                       <?php echo $ambilRadarBranch[34]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[35]->bukti ?>,
+                       <?php echo $ambilRadarBranch[36]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[37]->bukti ?>,
+                       <?php echo $ambilRadarBranch[38]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[39]->bukti ?>,
+                       <?php echo $ambilRadarBranch[40]->bukti ?>,
+                       <?php echo $ambilRadarBranch[41]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[42]->bukti ?>,
+                       <?php echo $ambilRadarBranch[43]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[44]->bukti ?>,
+                       <?php echo $ambilRadarBranch[45]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[46]->bukti ?>,
+                       <?php echo $ambilRadarBranch[47]->bukti ?>,
+                       <?php echo $ambilRadarBranch[48]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[49]->bukti ?>]
             }
         ]
     };
@@ -1688,17 +1741,35 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //UPGAM
         var radarData = {
-        labels: ["<?php echo $unitUPGAM[0]->Unit; ?>", 
-                 "<?php echo $unitUPGAM[1]->Unit; ?>",
-                 "<?php echo $unitUPGAM[2]->Unit; ?>", 
-                 "<?php echo $unitUPGAM[3]->Unit; ?>",
-                 "<?php echo $unitUPGAM[4]->Unit; ?>", 
-                 "<?php echo $unitUPGAM[5]->Unit; ?>",
-                 "<?php echo $unitUPGAM[6]->Unit; ?>", 
-                 "<?php echo $unitUPGAM[7]->Unit; ?>",
-                 "<?php echo $unitUPGAM[8]->Unit; ?>", 
-                 "<?php echo $unitUPGAM[9]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadarBranch[60]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[61]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[63]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[64]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[65]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[66]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[67]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[68]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[69]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[70]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[71]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[72]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[73]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[74]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[75]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[76]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[77]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[78]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[79]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[80]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[81]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[82]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[83]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[84]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[85]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[86]->Unit; ?>",
+                 "<?php echo $ambilRadarBranch[87]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1708,16 +1779,34 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $unitUPGAM[0]->bukti ?>, 
-                       <?php echo $unitUPGAM[1]->bukti ?>,
-                       <?php echo $unitUPGAM[2]->bukti ?>, 
-                       <?php echo $unitUPGAM[3]->bukti ?>,
-                       <?php echo $unitUPGAM[4]->bukti ?>, 
-                       <?php echo $unitUPGAM[5]->bukti ?>,
-                       <?php echo $unitUPGAM[6]->bukti ?>, 
-                       <?php echo $unitUPGAM[7]->bukti ?>,
-                       <?php echo $unitUPGAM[8]->bukti ?>, 
-                       <?php echo $unitUPGAM[9]->bukti ?>]
+                data: [<?php echo $ambilRadarBranch[60]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[61]->bukti ?>,
+                       <?php echo $ambilRadarBranch[62]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[63]->bukti ?>,
+                       <?php echo $ambilRadarBranch[64]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[65]->bukti ?>,
+                       <?php echo $ambilRadarBranch[66]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[67]->bukti ?>,
+                       <?php echo $ambilRadarBranch[68]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[69]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[60]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[71]->bukti ?>,
+                       <?php echo $ambilRadarBranch[72]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[73]->bukti ?>,
+                       <?php echo $ambilRadarBranch[74]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[75]->bukti ?>,
+                       <?php echo $ambilRadarBranch[76]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[77]->bukti ?>,
+                       <?php echo $ambilRadarBranch[78]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[79]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[80]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[81]->bukti ?>,
+                       <?php echo $ambilRadarBranch[82]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[83]->bukti ?>,
+                       <?php echo $ambilRadarBranch[84]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[85]->bukti ?>,
+                       <?php echo $ambilRadarBranch[86]->bukti ?>, 
+                       <?php echo $ambilRadarBranch[87]->bukti ?>] 
             }
         ]
     };
@@ -1751,10 +1840,12 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //SYDAM
         var radarData = {
-        labels: ["<?php echo $unitSYDAM[0]->Unit; ?>", 
-                 "<?php echo $unitSYDAM[1]->Unit; ?>", 
-                 "<?php echo $unitSYDAM[2]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadarBranch[50]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[51]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[52]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[53]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1764,9 +1855,10 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $unitSYDAM[0]->bukti; ?>,
-                       <?php echo $unitSYDAM[1]->bukti; ?>,
-                       <?php echo $unitSYDAM[2]->bukti; ?>]
+                data: [<?php echo $ambilRadarBranch[50]->bukti; ?>,
+                       <?php echo $ambilRadarBranch[51]->bukti; ?>,
+                       <?php echo $ambilRadarBranch[52]->bukti; ?>,
+                       <?php echo $ambilRadarBranch[53]->bukti; ?>]
             }
         ]
     };
@@ -1800,9 +1892,10 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //LON_AMS
         var radarData = {
-        labels: ["<?php echo $unitLON_AMS[0]->Unit; ?>", 
-                 "<?php echo $unitLON_AMS[1]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadarBranch[4]->Unit; ?>", 
+                 "<?php echo $ambilRadarBranch[0]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1812,8 +1905,8 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $unitLON_AMS[0]->bukti; ?>,
-                       <?php echo $unitLON_AMS[1]->bukti; ?>]
+                data: [<?php echo $ambilRadarBranch[4]->bukti; ?>,
+                       <?php echo $ambilRadarBranch[0]->bukti; ?>]
             }
         ]
     };
@@ -1847,9 +1940,9 @@ include('connection/conn.php');
 
     <script type="text/javascript">
     $(function () {
+        //JEDDM
         var radarData = {
-        labels: ["<?php echo $unitJED_MED[0]->Unit; ?>", 
-                 "<?php echo $unitJED_MED[1]->Unit; ?>"],
+        labels: ["<?php echo $ambilRadarBranch[1]->Unit; ?>"],
         datasets: [
             {
                 label: "My First dataset",
@@ -1859,8 +1952,7 @@ include('connection/conn.php');
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [<?php echo $unitJED_MED[0]->bukti; ?>,
-                       <?php echo $unitJED_MED[1]->bukti; ?>]
+                data: [<?php echo $ambilRadarBranch[1]->bukti; ?>]
             }
         ]
     };
