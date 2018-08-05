@@ -119,6 +119,93 @@ class model_users extends CI_Model {
 			return array();
 		}
 	}
+
+	public function program_unitho() {
+		//Query mencari record berdasarkan ID
+		$hasil = $this->db->query("select * from (SELECT * FROM cc_program a 
+LEFT JOIN (SELECT input_user_c,input_detail_c,input_target,input_satuan, AVG(input_realisasi_) 
+           AS persen_realisasi,AVG(input_gap) 
+           AS persen_gap FROM `cc_program_eval` a 
+           JOIN cc_program_input b on a.input_detail_c=b.input_detail 
+           GROUP BY input_user_c)b on a.cc_detail = b.input_detail_c where a.status='Default' 
+           GROUP BY input_user_c ) a JOIN unit b ON a.input_user_c = b.kode_unit WHERE b.kode_lokasi='HO'");
+		if($hasil->num_rows() > 0){
+			return $hasil->result();
+		}
+		else {
+			return array();
+		}
+	}
+
+	public function program_unitjkt() {
+		//Query mencari record berdasarkan ID
+		$hasil = $this->db->query("select * from (SELECT * FROM cc_program a 
+LEFT JOIN (SELECT input_user_c,input_detail_c,input_target,input_satuan, AVG(input_realisasi_) 
+           AS persen_realisasi,AVG(input_gap) 
+           AS persen_gap FROM `cc_program_eval` a 
+           JOIN cc_program_input b on a.input_detail_c=b.input_detail 
+           GROUP BY input_user_c)b on a.cc_detail = b.input_detail_c where a.status='Default' 
+           GROUP BY input_user_c ) a JOIN unit b ON a.input_user_c = b.kode_unit WHERE b.kode_lokasi!='HO' AND b.kode_lokasi!='SUBAM' AND b.kode_lokasi!='UPGAM' AND b.kode_lokasi!='MESAM'");
+		if($hasil->num_rows() > 0){
+			return $hasil->result();
+		}
+		else {
+			return array();
+		}
+	}
+
+	public function program_unitkal() {
+		//Query mencari record berdasarkan ID
+		$hasil = $this->db->query("select * from (SELECT * FROM cc_program a 
+LEFT JOIN (SELECT input_user_c,input_detail_c,input_target,input_satuan, AVG(input_realisasi_) 
+           AS persen_realisasi,AVG(input_gap) 
+           AS persen_gap FROM `cc_program_eval` a 
+           JOIN cc_program_input b on a.input_detail_c=b.input_detail 
+           GROUP BY input_user_c)b on a.cc_detail = b.input_detail_c where a.status='Default' 
+           GROUP BY input_user_c ) a JOIN unit b ON a.input_user_c = b.kode_unit WHERE b.kode_lokasi='UPGAM'");
+		if($hasil->num_rows() > 0){
+			return $hasil->result();
+		}
+		else {
+			return array();
+		}
+	}
+
+	public function program_unitsum() {
+		//Query mencari record berdasarkan ID
+		$hasil = $this->db->query("select * from (SELECT * FROM cc_program a 
+LEFT JOIN (SELECT input_user_c,input_detail_c,input_target,input_satuan, AVG(input_realisasi_) 
+           AS persen_realisasi,AVG(input_gap) 
+           AS persen_gap FROM `cc_program_eval` a 
+           JOIN cc_program_input b on a.input_detail_c=b.input_detail 
+           GROUP BY input_user_c)b on a.cc_detail = b.input_detail_c where a.status='Default' 
+           GROUP BY input_user_c ) a JOIN unit b ON a.input_user_c = b.kode_unit WHERE b.kode_lokasi='MESAM'");
+		if($hasil->num_rows() > 0){
+			return $hasil->result();
+		}
+		else {
+			return array();
+		}
+	}
+
+	public function program_unitjaw() {
+		//Query mencari record berdasarkan ID
+		$hasil = $this->db->query("select * from (SELECT * FROM cc_program a 
+LEFT JOIN (SELECT input_user_c,input_detail_c,input_target,input_satuan, AVG(input_realisasi_) 
+           AS persen_realisasi,AVG(input_gap) 
+           AS persen_gap FROM `cc_program_eval` a 
+           JOIN cc_program_input b on a.input_detail_c=b.input_detail 
+           GROUP BY input_user_c)b on a.cc_detail = b.input_detail_c where a.status='Default' 
+           GROUP BY input_user_c ) a JOIN unit b ON a.input_user_c = b.kode_unit WHERE b.kode_lokasi='SUBAM'");
+		if($hasil->num_rows() > 0){
+			return $hasil->result();
+		}
+		else {
+			return array();
+		}
+	}
+
+
 	public function max_bulan() {
 		//Query mencari record berdasarkan ID
 		$hasil = $this->db->query("SELECT MAX(cc_time) as max FROM cc_program where status= 'Default'");

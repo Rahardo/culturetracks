@@ -48,7 +48,11 @@ class admin extends CI_Controller {
 		$data['progresbranch'] = $this->model_admin->progresBranch();
 		$data['leaderhead'] = $this->model_admin->leaderHead();
 		$data['leaderbranch'] = $this->model_admin->leaderBranch();
-
+		$data['programho'] = $this->model_users->program_unitho();
+		$data['programjkt'] = $this->model_users->program_unitjkt();
+		$data['programkal'] = $this->model_users->program_unitkal();
+		$data['programsum'] = $this->model_users->program_unitsum();
+		$data['programjaw'] = $this->model_users->program_unitjaw();
 
 		//print_r($data['progres']);exit(); 
 		$this->load->view('admin/dashboard_view',$data);
@@ -211,6 +215,24 @@ class admin extends CI_Controller {
 
 		$this->load->view('admin/progress_program',$data);
 	}
+
+
+	function progress_program1($unit)
+	{	
+		$month = 7;
+		//print_r($month);
+		$data["unit"]=$unit;
+		$user = $unit;
+
+		$data['program1'] = $this->model_users->program_unit($unit);
+
+		/*if(!$data['nilairealisasi']) { $data['rerata'] =0; } else {
+		$data['rerata'] = $data['nilairealisasi'][0]->Total/$data['jumlahprogram']; }*/
+		//print_r($data['program']);exit();
+
+		$this->load->view('admin/dashboard_view',$data);
+	}
+
 	function progress_evaluasi()
 	{	
 		$mydate=getdate(date("U"));

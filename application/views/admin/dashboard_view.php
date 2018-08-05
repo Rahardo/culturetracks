@@ -114,6 +114,68 @@ include('connection/conn.php');
 
 
 
+        <div class="row  border-bottom white-bg dashboard-header">
+                <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12 widget_tally_box">
+            <div class="x_panel" >
+
+              <?php 
+              include('query.php');
+              
+
+              $isi= number_format($total,2,".",",");
+              
+              ?>
+
+              <div class="col-md-4 col-sm-4    col-xs-12">
+
+              <div class="x_title" style="text-align:center">
+                <h2 >Index Pencapaian</h2>
+                <h2 style='font-weight: bold'>Corporate</h2>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div id="echart_gauge" style="height:370px;"></div>
+                <div style="text-align:center">
+                  
+                </div>
+              </div>
+              </div>
+
+              <div class="col-md-4 col-sm-4    col-xs-12">
+
+              <div class="x_title" style="text-align:center">
+                <h2 >Index Pencapaian</h2>
+                <h2 style='font-weight: bold'>Head Office</h2>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div id="echart_gauge2" style="height:370px;"></div>
+                <div style="text-align:center">
+                  
+                </div>
+              </div>
+              
+              </div>
+              <div class="col-md-4 col-sm-4    col-xs-12">
+
+              <div class="x_title" style="text-align:center">
+                <h2 >Index Pencapaian</h2>
+                <h2 style='font-weight: bold'>Branch Office</h2>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <div id="echart_gauge3" style="height:370px;"></div>
+                <div style="text-align:center">
+                  
+                </div>
+              </div>
+
+              </div>
+
+            </div>
+
+
                   <div class="col-md-2 col-sm-2    col-xs-12">
                   <div class="widget red-bg p-lg text-center">
                   <?php
@@ -229,18 +291,21 @@ include('connection/conn.php');
                                                         </thead>
                                                         <tbody>       
                                                              
-
+                                                                <?php for ($i=0; $i < count($leaderhead) ; $i++) {  ?>
+                                                                  
                                                                 <tr>
                                                                 <td style="text-align:center" >
-                                                                1
+                                                                <?php echo $i+1; ?>
                                                                 </td>
                                                                 <td style="text-align:center" >
-                                                                <?php echo $leaderhead[0]->kode_unit; ?>
+                                                                <?php echo $leaderhead[$i]->kode_unit; ?>
                                                                 </td>
                                                                 <td style="text-align:center" >
-                                                                <?php echo $leaderhead[0]->Total; ?> 
+                                                                <?php echo $leaderhead[$i]->Total; ?> 
                                                                 </td>
                                                               </tr>
+
+                                                                <?php } ?>
 
                                                         </tbody>
                                                       </table>
@@ -354,20 +419,27 @@ include('connection/conn.php');
                                                             
                                                           </tr>
                                                         </thead>
-                                                        <tbody>       
-                                                             
+                                                        <tbody>                                                                 
 
+                                                                
+                                                                 
+                                                                 
+                                                                <?php for ($i=0; $i < count($leaderbranch) ; $i++) {  ?>
+                                                                  
                                                                 <tr>
                                                                 <td style="text-align:center" >
-                                                                1
+                                                                <?php echo $i+1; ?>
                                                                 </td>
                                                                 <td style="text-align:center" >
-                                                                <?php echo $leaderbranch[0]->kode_unit; ?>
+                                                                <?php echo $leaderbranch[$i]->kode_unit; ?>
                                                                 </td>
                                                                 <td style="text-align:center" >
-                                                                <?php echo $leaderbranch[0]->Total; ?> 
+                                                                <?php echo $leaderbranch[$i]->Total; ?> 
                                                                 </td>
                                                               </tr>
+
+                                                                <?php } ?>
+                                                              
 
                                                         </tbody>
                                                       </table>
@@ -385,231 +457,7 @@ include('connection/conn.php');
                   </div>
                 </div>
               </div>
-
-
-              <div class="col-md-2 col-sm-2    col-xs-12">
-                <a href="<?php echo base_url()?>admin_radar/index">
-                <button class="widget red-bg p-lg text-center" type="button" data-target="#perform">
-                <div class="m-b-md">          
-                                <i class="fa fa-bell fa-4x"></i>
-                                <h1 class="m-xs"></h1>
-                                <h3 class="font-bold no-margins">
-                                    <span>Dashboard Performance</span>
-                                </h3>
-                            </div>
-                          </button>
-                </a>
-              </div>
-
-              <div class="col-md-5 col-sm-5    col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2 style='font-weight: bold'>Top 3 Warrior Head Office</h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <table class="table table-hover table-bordered" style="font-size:14px">
-                      <thead>
-                        <tr>
-                          <th style="width:20%; text-align:center">Rank</th>
-                          <th style="text-align:center">Nopeg</th>
-                          <th style="text-align:center">Unit</th>
-                          <th style="text-align:center">Score</th>
-                          
-                        </tr>
-                      </thead>
-                      <tbody>       
-                           
-
-                              <tr>
-                              <td style="text-align:center" >
-                              1
-                              </td>
-                              <td style="text-align:center" >
-                              
-                              </td>
-                              <td style="text-align:center" >
-
-                              </td>
-                              <td style="text-align:center" >
- 
-                              </td>
-                            </tr>
-                            
-                            <tr>
-                              <td style="text-align:center" >
-                                2
-                              </td>
-                              <td style="text-align:center" >
-                              
-                              </td>
-                              <td style="text-align:center" >
-
-                              </td>
-                              <td style="text-align:center" >
-
-                              </td>
-                            </tr>
-                            
-                            <tr>
-                              <td style="text-align:center" >
-                                3
-                              </td>
-                              <td style="text-align:center" >
-                              
-                              </td>
-                              <td style="text-align:center" >
-
-                              </td>
-                              <td style="text-align:center" >
-  
-                              </td>
-                            </tr>
-
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="col-md-5 col-sm-5    col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2 style='font-weight: bold'>Top 3 Warrior Branch Office</h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <table class="table table-hover table-bordered" style="font-size:14px">
-                      <thead>
-                        <tr>
-                          <th style="width:20%; text-align:center">Rank</th>
-                          <th style="text-align:center">Nopeg</th>
-                          <th style="text-align:center">Unit</th>
-                          <th style="text-align:center">Score</th>
-                          
-                        </tr>
-                      </thead>
-                      <tbody>       
-                           
-
-                              <tr>
-                              <td style="text-align:center" >
-                              1
-                              </td>
-                              <td style="text-align:center" >
-                              
-                              </td>
-                              <td style="text-align:center" >
-
-                              </td>
-                              <td style="text-align:center" >
-
-                              </td>
-                            </tr>
-                            
-                            <tr>
-                              <td style="text-align:center" >
-                                2
-                              </td>
-                              <td style="text-align:center" >
-                              
-                              </td>
-                              <td style="text-align:center" >
-
-                              </td>
-                              <td style="text-align:center" >
- 
-                              </td>
-                            </tr>
-                            
-                            <tr>
-                              <td style="text-align:center" >
-                                3
-                              </td>
-                              <td style="text-align:center" >
-                              
-                              </td>
-                              <td style="text-align:center" >
-
-                              </td>
-                              <td style="text-align:center" >
- 
-                              </td>
-                            </tr>
-
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-
-
-          <div class="row  border-bottom white-bg dashboard-header">
-                <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12 widget_tally_box">
-            <div class="x_panel" >
-
-              <?php 
-              include('query.php');
-              
-
-              $isi= number_format($total,2,".",",");
-              
-              ?>
-
-              <div class="col-md-4 col-sm-4    col-xs-12">
-
-              <div class="x_title" style="text-align:center">
-                <h2 >Index Pencapaian</h2>
-                <h2 style='font-weight: bold'>Corporate</h2>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <div id="echart_gauge" style="height:370px;"></div>
-                <div style="text-align:center">
-                  
-                </div>
-              </div>
-              </div>
-
-              <div class="col-md-4 col-sm-4    col-xs-12">
-
-              <div class="x_title" style="text-align:center">
-                <h2 >Index Pencapaian</h2>
-                <h2 style='font-weight: bold'>Head Office</h2>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <div id="echart_gauge2" style="height:370px;"></div>
-                <div style="text-align:center">
-                  
-                </div>
-              </div>
-              
-              </div>
-              <div class="col-md-4 col-sm-4    col-xs-12">
-
-              <div class="x_title" style="text-align:center">
-                <h2 >Index Pencapaian</h2>
-                <h2 style='font-weight: bold'>Branch Office</h2>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-                <div id="echart_gauge3" style="height:370px;"></div>
-                <div style="text-align:center">
-                  
-                </div>
-              </div>
-
-              </div>
-
-            </div>
-
-
+    
 
 
                 <div class="col-md-12 col-sm-12    col-xs-12">
@@ -640,6 +488,26 @@ include('connection/conn.php');
                         </tr>
                       </thead>
                       <tbody>
+                        
+
+                        <?php foreach ($programho as $key)  { ?>
+                                                              
+                                                                <tr>
+                                                                <td style="text-align:left" >
+                                                                <a href="<?php echo base_url()?>admin/progress_program/<?php echo $key->input_user_c;?>">
+                                                                <b><?php echo $key->input_user_c; ?> </b> (<?php echo $key->nama_unit; ?>) </a>
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <i class="fa fa-check-circle" style="color:green"></i>
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <?php echo ceil($key->persen_realisasi); ?>%
+                                                                </td>
+                                                              </tr>
+
+                                                                
+                                                                <?php } ?>
+
                         <?php 
                         $n=1;
                         $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='1')a JOIN unit b on a.unit_name=b.kode_unit");
@@ -656,36 +524,20 @@ include('connection/conn.php');
                               <td style="text-align:center" >
                                 <i class="fa fa-circle" style="color:red"></i>
                               </td>
-                              <td>
-                            <!--<?php 
-                            $ppp=0; for ($i=0; $i <count($program) ; $i++) {
-                            if ($program[$i]->persen_realisasi) $ppp=$ppp+$program[$i]->persen_realisasi;
-                            $persenbar=$ppp/count($program); 
-                            } ?>    
-                            <?php echo $persenbar; ?> -->
+                              <td style="text-align:center">
+                              0%
                               </td>
                             </tr>
                             <?php                        
                           } else {
                             ?>
-                            <tr>
-                              <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
-                              <td style="text-align:center" >
-                                <i class="fa fa-check-circle" style="color:green"></i>
-                              </td>
-                              <td>
+                            <?php } ?>
+                            <?php } ?>
 
-                              </td>
-                            </tr>
-                            
-                            <?php 
 
-                          }
-                          ?>
-                          <?php 
-                        }
+                        
+                                                                
 
-                        ?>
                       </tbody>
                     </table>
                   </div>
@@ -721,6 +573,27 @@ include('connection/conn.php');
                     </tr>
                   </thead>
                   <tbody>
+
+
+                    <?php foreach ($programjkt as $key)  { ?>
+                                                              
+                                                                <tr>
+                                                                <td style="text-align:left" >
+                                                                <a href="<?php echo base_url()?>admin/progress_program/<?php echo $key->input_user_c;?>">
+                                                                <b><?php echo $key->input_user_c; ?> </b> (<?php echo $key->nama_unit; ?>) </a>
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <i class="fa fa-check-circle" style="color:green"></i>
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <?php echo ceil($key->persen_realisasi); ?>%
+                                                                </td>
+                                                              </tr>
+
+                                                                
+                                                                <?php } ?>
+
+
                     <?php 
                     $n=1;
                     $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='5')a JOIN unit b on a.unit_name=b.kode_unit");
@@ -735,22 +608,14 @@ include('connection/conn.php');
                           <td style="text-align:center" >
                             <i class="fa fa-circle" style="color:red"></i>
                           </td>
-                          <td>
-                              
+                          <td style="text-align:center">
+                            0%  
                           </td>
                         </tr>
                         <?php                        
                       } else {
                         ?>
-                        <tr>
-                          <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
-                          <td style="text-align:center" >
-                            <i class="fa fa-check-circle" style="color:green"></i>
-                          </td>
-                          <td>
-                              
-                          </td>
-                        </tr>
+                        
                         <?php 
 
                       }
@@ -792,6 +657,25 @@ include('connection/conn.php');
                     </tr>
                   </thead>
                   <tbody>
+
+                    <?php foreach ($programkal as $key)  { ?>
+                                                              
+                                                                <tr>
+                                                                <td style="text-align:left" >
+                                                                <a href="<?php echo base_url()?>admin/progress_program/<?php echo $key->input_user_c;?>">
+                                                                <b><?php echo $key->input_user_c; ?> </b> (<?php echo $key->nama_unit; ?>) </a>
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <i class="fa fa-check-circle" style="color:green"></i>
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <?php echo ceil($key->persen_realisasi); ?>%
+                                                                </td>
+                                                              </tr>
+
+                                                                
+                                                                <?php } ?>
+
                     <?php 
                     $n=1;
                     $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='4')a JOIN unit b on a.unit_name=b.kode_unit");
@@ -806,22 +690,14 @@ include('connection/conn.php');
                           <td style="text-align:center" >
                             <i class="fa fa-circle" style="color:red"></i>
                           </td>
-                          <td>
-                              
+                          <td style="text-align:center">
+                            0%  
                           </td>
                         </tr>
                         <?php                        
                       } else {
                         ?>
-                        <tr>
-                          <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a>)</td>
-                          <td style="text-align:center" >
-                            <i class="fa fa-check-circle" style="color:green"></i>
-                          </td>
-                          <td>
-                              
-                          </td>
-                        </tr>
+                        
                         <?php 
 
                       }
@@ -859,6 +735,25 @@ include('connection/conn.php');
                         </tr>
                       </thead>
                       <tbody>
+
+                        <?php foreach ($programsum as $key)  { ?>
+                                                              
+                                                                <tr>
+                                                                <td style="text-align:left" >
+                                                                <a href="<?php echo base_url()?>admin/progress_program/<?php echo $key->input_user_c;?>">
+                                                                <b><?php echo $key->input_user_c; ?> </b> (<?php echo $key->nama_unit; ?>) </a>
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <i class="fa fa-check-circle" style="color:green"></i>
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <?php echo ceil($key->persen_realisasi); ?>%
+                                                                </td>
+                                                              </tr>
+
+                                                                
+                                                                <?php } ?>
+
                         <?php 
                         $n=1;
                         $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='2')a JOIN unit b on a.unit_name=b.kode_unit");
@@ -873,22 +768,14 @@ include('connection/conn.php');
                               <td style="text-align:center" >
                                 <i class="fa fa-circle" style="color:red"></i>
                               </td>
-                              <td>
-                              
+                              <td style="text-align:center">
+                              0%
                               </td>
                             </tr>
                             <?php                        
                           } else {
                             ?>
-                            <tr>
-                              <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
-                              <td style="text-align:center" >
-                                <i class="fa fa-check-circle" style="color:green"></i>
-                              </td>
-                              <td>
-                              
-                              </td>
-                            </tr>
+                            
                             <?php 
 
                           }
@@ -920,6 +807,25 @@ include('connection/conn.php');
                         </tr>
                       </thead>
                       <tbody>
+
+                        <?php foreach ($programsum as $key)  { ?>
+                                                              
+                                                                <tr>
+                                                                <td style="text-align:left" >
+                                                                <a href="<?php echo base_url()?>admin/progress_program/<?php echo $key->input_user_c;?>">
+                                                                <b><?php echo $key->input_user_c; ?> </b> (<?php echo $key->nama_unit; ?>) </a>
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <i class="fa fa-check-circle" style="color:green"></i>
+                                                                </td>
+                                                                <td style="text-align:center" >
+                                                                <?php echo ceil($key->persen_realisasi); ?>%
+                                                                </td>
+                                                              </tr>
+
+                                                                
+                                                                <?php } ?>
+
                         <?php 
                         $n=1;
                         $queries=mysqli_query($con,"SELECT * FROM (SELECT DISTINCT(unit_name),id_ca,kode,input_user_c FROM ca_performance_upload LEFT JOIN cc_program_eval on ca_performance_upload.unit_name=cc_program_eval.input_user_c where ca_performance_upload.kode='3')a JOIN unit b on a.unit_name=b.kode_unit");
@@ -936,22 +842,14 @@ include('connection/conn.php');
                               <td style="text-align:center" >
                                 <i class="fa fa-circle" style="color:red"></i>
                               </td>
-                              <td>
-                              
+                              <td style="text-align:center">
+                              0%
                               </td>
                             </tr>
                             <?php                        
                           } else {
                             ?>
-                            <tr>
-                              <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
-                              <td style="text-align:center" >
-                                <i class="fa fa-check-circle" style="color:green"></i>
-                              </td>
-                              <td>
-                              
-                              </td>
-                            </tr>
+                            
                             <?php 
 
                           }
