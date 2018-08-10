@@ -2,6 +2,32 @@
 session_start();
 include('connection/conn.php');
 ?>
+<?php 
+                                  $cc1=mysqli_query($con, "SELECT count(status_aktif) AS jumlahtib FROM baru_tim_implementasi_budaya where input_bulan='08'");
+
+                                  $isi1=mysqli_fetch_array($cc1)['jumlahtib'];
+
+                                  $cc2=mysqli_query($con, "SELECT count(status_aktif) AS jumlahtib FROM baru_tim_implementasi_budaya where input_bulan='09'");
+
+                                  $isi2=mysqli_fetch_array($cc2)['jumlahtib'];
+
+                                  $cc3=mysqli_query($con, "SELECT count(status_aktif) AS jumlahtib FROM baru_tim_implementasi_budaya where input_bulan='10'");
+
+                                  $isi3=mysqli_fetch_array($cc3)['jumlahtib'];
+
+                                 
+
+                                  ?>
+                  <?php
+
+
+                        $dataPoints = array( 
+                          array("y" => $isi1, "label" => "Agustus" ),
+                          array("y" => $isi2, "label" => "September" ),
+                          array("y" => $isi3, "label" => "Oktober" ),
+                        );
+                         
+                        ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,6 +38,15 @@ include('connection/conn.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Garuda Indonesia | Dashboard</title>
+
+
+    <link rel="icon" type="image/png" href="<?php echo base_url()?>assets/gi.ico">
+    <link href="<?php echo base_url()?>css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>css/custom.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>css/animate.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>css/style.css" rel="stylesheet">
 
     <link href="<?php echo base_url()?>css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="<?php echo base_url()?>assets/gi.ico">
@@ -25,6 +60,29 @@ include('connection/conn.php');
 
     <link href="<?php echo base_url()?>css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url()?>css/style.css" rel="stylesheet">
+
+    <script>
+window.onload = function() {
+ 
+var chart = new CanvasJS.Chart("chartContainer", {
+  animationEnabled: true,
+  theme: "light2",
+  title:{
+    text: "Jumlah Tim Implementasi Budaya"
+  },
+  axisY: {
+    title: "Orang"
+  },
+  data: [{
+    type: "column",
+    yValueFormatString: "#,##0.## tonnes",
+    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+  }]
+});
+chart.render();
+ 
+}
+</script>
 
 </head>
 
@@ -115,6 +173,11 @@ include('connection/conn.php');
               </ul>
           </nav>
         </div>
+        <div class="col-md-9">
+                  <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+                </div>
           <div class="row  border-bottom white-bg dashboard-header">
                 <div class="row">
           <div class="col-md-4 col-sm-4 col-xs-12 widget_tally_box">
