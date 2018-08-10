@@ -56,6 +56,10 @@ include('connection/conn.php');
                         <a href="<?php echo base_url()?>admin_radar/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Performance</span></a>
 
                     </li>
+                    <li class="">
+                        <a href="<?php echo base_url()?>admin/dashboard_bobot"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Bobot</span></a>
+
+                    </li>
                     <li >
                         <a href="<?php echo base_url()?>admin/dashboard_warrior"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Warrior</span></a>
 
@@ -69,7 +73,7 @@ include('connection/conn.php');
                         <ul class="nav nav-second-level">
                             <li><a href="<?php echo base_url()?>admin/program"><i class="fa fa-pencil"></i> List Program</a></li>
                             <li><a href="<?php echo base_url()?>admin/tambah_program"><i class="fa fa-bar-chart-o"></i> Tambah Program</a></li>
-                            <!-- <li><a href="<?php echo base_url()?>admin/progress_program"><i class="fa fa-bar-chart-o"></i> Progress Program</a></li> -->
+                            <!-- <li><a href="<?php echo base_url()?>admin/progress_tib"><i class="fa fa-bar-chart-o"></i> Progress Program</a></li> -->
                         </ul>
                     </li>
                     <li >
@@ -158,7 +162,7 @@ include('connection/conn.php');
                       } else {
                         ?>
                         <tr>
-                          <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
+                          <td><a href="<?php echo base_url()?>admin/progress_tib/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
                           <td style="text-align:center" >
                             <i class="fa fa-check-circle" style="color:green"></i>
                           </td>
@@ -219,7 +223,7 @@ include('connection/conn.php');
                       } else {
                         ?>
                         <tr>
-                          <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a>)</td>
+                          <td><a href="<?php echo base_url()?>admin/progress_tib/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a>)</td>
                           <td style="text-align:center" >
                             <i class="fa fa-check-circle" style="color:green"></i>
                           </td>
@@ -285,7 +289,7 @@ include('connection/conn.php');
                           } else {
                             ?>
                             <tr>
-                              <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
+                              <td><a href="<?php echo base_url()?>admin/progress_tib/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
                               <td style="text-align:center" >
                                 <i class="fa fa-check-circle" style="color:green"></i>
                               </td>
@@ -344,7 +348,7 @@ include('connection/conn.php');
                           } else {
                             ?>
                             <tr>
-                              <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
+                              <td><a href="<?php echo base_url()?>admin/progress_tib/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
                               <td style="text-align:center" >
                                 <i class="fa fa-check-circle" style="color:green"></i>
                               </td>
@@ -400,7 +404,7 @@ include('connection/conn.php');
                           } else {
                             ?>
                             <tr>
-                              <td><a href="<?php echo base_url()?>admin/progress_program/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
+                              <td><a href="<?php echo base_url()?>admin/progress_tib/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
                               <td style="text-align:center" >
                                 <i class="fa fa-check-circle" style="color:green"></i>
                               </td>

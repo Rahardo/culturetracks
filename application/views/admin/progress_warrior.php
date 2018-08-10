@@ -1,18 +1,19 @@
 <?php
 session_start();
 include('connection/conn.php');
+$username=$unit;
+$user=$unit;
 ?>
 <?php 
-                                  $uname = $this->session->userdata('username'); 
-                                  $cc1=mysqli_query($con, "SELECT * FROM cc_program_eval where input_user_c='".$uname."'  and input_bulan='08' and input_detail_c='AKSELERASI'");
+                                  $cc1=mysqli_query($con, "SELECT * FROM cc_program_eval where input_user_c='".$username."'  and input_bulan='08' and input_detail_c='AKSELERASI'");
 
                                   $isi1=mysqli_fetch_array($cc1)['input_realisasi_'];
 
-                                  $cc2=mysqli_query($con, "SELECT * FROM cc_program_eval where input_user_c='".$uname."'  and input_bulan='09' and input_detail_c='AKSELERASI'");
+                                  $cc2=mysqli_query($con, "SELECT * FROM cc_program_eval where input_user_c='".$username."'  and input_bulan='09' and input_detail_c='AKSELERASI'");
 
                                   $isi2=mysqli_fetch_array($cc2)['input_realisasi_'];
 
-                                  $cc3=mysqli_query($con, "SELECT * FROM cc_program_eval where input_user_c='".$uname."'  and input_bulan='10' and input_detail_c='AKSELERASI'");
+                                  $cc3=mysqli_query($con, "SELECT * FROM cc_program_eval where input_user_c='".$username."'  and input_bulan='10' and input_detail_c='AKSELERASI'");
 
                                   $isi3=mysqli_fetch_array($cc3)['input_realisasi_'];
 
@@ -100,10 +101,10 @@ chart.render();
             <div class="navbar-collapse collapse blue-bg" id="navbar">
                 <ul class="nav navbar-top-links navbar-right"  style="color:black">
                     <li>
-                           <h4><i class="fa fa-user"></i> Unit <?php echo $this->session->userdata('username') ?></h4>
+                           <h4><i class="fa fa-user"></i> Unit Admin-garuda</h4>
                     </li>
                     <li>
-                        <a href="<?php echo base_url()?>user/logout" style="color:black">
+                        <a href="<?php echo base_url()?>admin/logout" style="color:black">
                             <i class="fa fa-sign-out"></i> Log out
                         </a>
                     </li>
@@ -112,16 +113,7 @@ chart.render();
                     <li>
                            <h4></h4>
                     </li>
-                    <li>
-                        <a href="<?php echo base_url()?>user/warrior" style="color:black">
-                            <i class="fa fa-user"></i> Data Warrior
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo base_url()?>user/timbudaya" style="color:black">
-                            <i class="fa fa-users"></i> Data Tim Implementasi Budaya
-                        </a>
-                    </li>
+                    
                 </ul>
             </div>
         </nav>
@@ -147,9 +139,12 @@ chart.render();
                     </div>
                     <br>
                     <ul class="list-unstyled user_data">
-                      <li><i class="fa fa-map-marker user-profile-icon"></i> Unit : <?php echo $this->session->userdata('username'); ?>
+                      <li><i class="fa fa-map-marker user-profile-icon"></i> Unit : Admin-garuda
                       </li>
                     </ul>
+                    <div style="text-align:center">
+                      <a href="<?php echo base_url()?>admin"><button type="submit" class="btn btn-primary btn-xs" style="width: 80% ; font-size: 100%" >Kembali</button></a>
+                    </div>
                   </div>
                   <div class="col-md-9 col-sm-9 col-xs-12">
                       <div class="profile_title">
@@ -161,101 +156,42 @@ chart.render();
                     <br>
                   <div class="x_panel ui-ribbon-container ">
                           <div class="x_content">
-                            <?php if ($status==0) { ;?>
-                             <?php
-                        echo '<script language="javascript">';
-                        echo 'alert("Anda Belum Mengisi Data Warrior")';
-                        echo '</script>'; ?>
-                            <form id="demo-form2" action="<?php echo base_url()?>user/addwarrior/" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
-                              <input type="text" id="first-name" name="user" readonly class="form-control col-md-7 col-xs-12" value="<?php echo $this->session->userdata('username');?>" style="display:none">
-                              <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nomer Pegawai 
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <input type="text" id="first-name" required name="nopeg" class="form-control col-md-7 col-xs-12">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Unit
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <input type="text" id="first-name" readonly class="form-control col-md-7 col-xs-12" value="<?php echo $this->session->userdata('unit');?>">
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Direktorat
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <input type="text" id="first-name" required class="form-control col-md-7 col-xs-12"  readonly value="<?php echo $this->session->userdata('direktorat');?>">
-                                </div>
-                              </div>
-                              <div class="ln_solid"></div>
-                              <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Status Aktif
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <select class="form-control" required="true" name="status_aktif">
-                                      <option value="">Choose..</option>
-                                      <option value="1">Aktif</option>
-                                      <option value="0">Tidak Aktif</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Email 
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <input type="text" id="first-name" required name="email" class="form-control col-md-7 col-xs-12">
-                                </div>
-                              </div>
-                              <div class="ln_solid"></div>
-                              <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                  <a href="<?php echo base_url()?>user"><button type="button" name="submit" class="btn btn-primary" value="batal">Cancel</button></a>
-                                  <button type="submit" name="submit" class="btn btn-success" value="simpan">Submit</button>
-                                </div>
-                              </div>
-                            </form>
-                           <?php } else {?>
+                            <!-- <form id="demo-form2" action="<?php echo base_url()?>user/addwarrior/" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+                            </form> -->
 
-                                <?php 
-                                                    if($this->input->post('is_submitted')){
-
-                                                                $nopeg          = set_value('nopeg');
-                                                                $unit           = set_value('unit');
-                                                                $direktorat     = set_value('direktorat');
-                                                                $status_aktif   = set_value('status_aktif');       
-                                                                $email          = set_value('email');
-                                                    }
-                                                    else {
-                                                                $nopeg          = $warrior[0]->nopeg;
-                                                                $unit           = $warrior[0]->unit;
-                                                                $direktorat     = $warrior[0]->direktorat;
-                                                                $status_aktif   = $warrior[0]->status_aktif;
-                                                                $email          = $warrior[0]->email;       
-                                                    }
-                                                    ?>
+                                <!-- <?php 
+                                                    
+                                                                $nopeg          = $progress_warrior[0]->nopeg;
+                                                                $unit           = $progress_warrior[0]->unit;
+                                                                $direktorat     = $progress_warrior[0]->direktorat;
+                                                                $status_aktif   = $progress_warrior[0]->status_aktif;
+                                                                $email          = $progress_warrior[0]->email;       
+                                                    
+                                                    ?> -->
                                 <form id="demo-form2" action="<?php echo base_url()?>user/editwarrior/<?php echo $nopeg?>" method="post" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
-                              <input type="text" id="first-name" name="user" readonly class="form-control col-md-7 col-xs-12" value="<?php echo $this->session->userdata('username');?>" style="display:none">
+                              <input type="text" id="first-name" name="user" readonly class="form-control col-md-7 col-xs-12" value="<?php echo $username;?>" style="display:none">
+                                <?php foreach ($baru_warrior as $b) { ?>
+                              
                               <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nomer Pegawai 
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <input type="text" id="first-name" name="nopeg" required class="form-control col-md-7 col-xs-12" value="<?php echo $nopeg?>">
+                                  <input type="text" id="first-name" name="nopeg" readonly class="form-control col-md-7 col-xs-12" value="<?php echo $b->nopeg; ?>">
                                 </div>
                               </div>
+                              
                               <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Unit
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <input type="text" id="first-name" readonly class="form-control col-md-7 col-xs-12" value="<?php echo $unit?>">
+                                  <input type="text" id="first-name" readonly class="form-control col-md-7 col-xs-12" value="<?php echo $b->unit; ?>">
                                 </div>
                               </div>
                               <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Direktorat
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <input type="text" id="first-name" readonly class="form-control col-md-7 col-xs-12" value="<?php echo $direktorat?>">
+                                  <input type="text" id="first-name" readonly class="form-control col-md-7 col-xs-12" value="<?php echo $b->direktorat; ?>">
                                 </div>
                               </div>
                               <div class="ln_solid"></div>
@@ -263,10 +199,8 @@ chart.render();
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Status Aktif
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <select class="form-control" required="true" name="status_aktif" value="<?php echo $status_aktif?>">
-                                      <option value="<?php echo $status_aktif?>"><?php if ($status_aktif==1) echo "Aktif"; else echo "Tidak Aktif"; ?></option>
-                                      <option value="1">Aktif</option>
-                                      <option value="0">Tidak Aktif</option>
+                                  <select readonly class="form-control" required="true" name="status_aktif" value="<?php echo $b->status_aktif?>">
+                                    <option value="<?php echo $status_aktif?>"><?php if ($b->status_aktif==1) echo "Aktif"; else echo "Tidak Aktif"; ?></option>
                                   </select>
                                 </div>
                               </div>
@@ -274,18 +208,14 @@ chart.render();
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Email 
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <input type="text" id="first-name" required name="email" class="form-control col-md-7 col-xs-12" value="<?php echo $email?>">
+                                  <input type="text" id="first-name" readonly name="email" class="form-control col-md-7 col-xs-12" value="<?php echo $b->email; ?>">
                                 </div>
                               </div>
-                              <div class="ln_solid"></div>
-                              <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                  <a href="<?php echo base_url()?>user"><button type="button" name="submit" class="btn btn-primary" value="batal">Cancel</button></a>
-                                  <button type="submit" name="submit" class="btn btn-success" value="simpan">Simpan Perubahan</button>
-                                </div>
-                              </div>
-                            </form>
                            <?php } ?>
+                           
+                              <div class="ln_solid"></div>
+                              
+                            </form>
                           </div>
                         </div>
                         </div>

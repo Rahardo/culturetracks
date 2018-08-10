@@ -55,6 +55,10 @@ include('connection/conn.php');
                         <a href="<?php echo base_url()?>admin_radar/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Performance</span></a>
 
                     </li>
+                    <li class="">
+                        <a href="<?php echo base_url()?>admin/dashboard_bobot"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Bobot</span></a>
+
+                    </li>
                     <li>
                         <a href="<?php echo base_url()?>admin/dashboard_warrior"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Warrior</span></a>
 
@@ -90,71 +94,12 @@ include('connection/conn.php');
 
             </div>
         </nav>
-        <!--<nav class="navbar-default navbar-static-side" role="navigation">
-            <div class="sidebar-collapse">
-                <a class="close-canvas-menu"><i class="fa fa-times"></i></a>
-                <ul class="nav metismenu" id="side-menu">
-                    <li class="nav-header">
-                        <div class="dropdown profile-element"> 
-                            <span>
-                                <img alt="image" class="img-circle" src="img/profile_small.jpg" />
-                            </span>
-                            
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                <span class="clear"> 
-                                    <span class="block m-t-xs"> 
-                                        <strong class="font-bold">Admin</strong>
-                                    </span> 
-
-                                    <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> 
-                                </span> 
-                            </a>
-
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a href="login.html">Logout</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="logo-element">
-                            IN+
-                        </div>
-                    </li>
-
-                    <li class="active">
-                        <a href="#">
-                            <i class="fa fa-desktop"></i> 
-                            <span class="nav-label">Survey</span>  
-                            <span class="pull-right label label-primary">SPECIAL</span>
-                        </a>
-
-                        <ul class="nav nav-second-level">
-                            <li><a href="<?php echo base_url()?>admin/forms">Forms</a></li>
-                            <li><a href="<?php echo base_url()?>admin/construct">Construct</a></li>
-                            <li><a href="<?php echo base_url()?>admin">Question</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>-->
+   
 
         <div id="page-wrapper" class="gray-bg">
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                    <!--<div class="navbar-header">
-                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#">
-                            <i class="fa fa-bars"></i>
-                        </a>
-
-                        <form role="search" class="navbar-form-custom" action="search_results.html">
-                            <div class="form-group">
-                                <input type="text" 
-                                       placeholder="Search for something..." 
-                                       class="form-control" 
-                                       name="top-search" 
-                                       id="top-search">
-                            </div>
-                        </form>
-                    </div>-->
+                   
 
                     <div class="navbar-header">
               <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
@@ -188,9 +133,12 @@ include('connection/conn.php');
             </div>
 
             <div class="wrapper wrapper-content  animated fadeInRight article">
+                <div class="row">                 
+
+                    
                 <div class="row">
                     <!-- JKTDC -->                    
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">            
                             <div class="ibox-content">
                                 <h2>Direktorat <b>JKTDC</b></h2>
@@ -199,130 +147,9 @@ include('connection/conn.php');
                                 </div>
                             </div>
                         </div>
-                    </div>                    
-
-                    <div class="col-lg-8">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-content">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover dataTables-example">
-                                        <p>
-                                            <button type="button" 
-                                                    class="btn btn-block btn-outline btn-primary" 
-                                                    data-toggle="modal" 
-                                                    data-target="#myModal">
-                                                <i class="fa fa-wrench"></i> Pengaturan Level
-                                            </button>
-                                        </p>
-
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center" style="width: 10%;">No.</th>
-                                                <th class="text-center" style="width: 60%;">Level</th>
-                                                <th class="text-center" style="width: 25%;">Action</th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                        <?php $n=0; foreach($list_label as $row =>$value) : $n++;?>
-                                            <tr class="gradeX">
-                                                <td class="text-center" style="width: 10%;"><?php echo $n; ?></td>
-                                                <td><?=$value->label; ?></td>
-                                                <td class="text-center">                                                       
-                                                        
-                                                        <button type="button" class="btn btn-xs btn-primary table-hover" data-toggle="modal" data-target="#myModal<?php echo $value->id ?>">Edit</button>
-
-                                                        <?=anchor( 'admin/delete/' . $value->id,
-                                                           'Hapus',
-                                                           ['class'=>'btn btn-xs btn-danger',
-                                                           'onclick'=>'return confirm(\'Apakah Anda Yakin?\')'
-                                                        ])?>
-                                                </td>
-                                            </tr>
-                                            <?php 
-                                                $id=$value->id;
-                                                if($this->input->post('is_submitted')){
-                                                    $label      =set_value('label');
-                                                } else {
-                                                    $label      =$value->label;
-                                                }
-                                            ?>
-                                            <!-- Modal Edit -->
-                                            <div class="modal inmodal" id="myModal<?php echo $value->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content animated bounceInRight">
-                                                        <div class="modal-header">
-                                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                                            <i class="fa fa-laptop modal-icon"></i>
-                                                            <h4 class="modal-title">Edit Level</h4>
-                                                            <small class="font-bold">Sesuaikan level dengan ketentuan dari training yang telah dijalankan.</small>
-                                                        </div>
-                                                        <?php echo form_open_multipart('admin/edit/'.$id) ?>
-                                                        <div class="modal-body">
-                                                            <p><strong>Level</strong> : Kalkulasi dari semua evidence yang telah disubmit oleh masing-masing unit, semakin banyak evidence yang telah disubmit oleh masing-masing unit akan membuat level unit tersebut semakin meningkat.</p>
-                                                                    <div class="form-group">
-                                                                        <label>Edit Level Input</label> 
-                                                                        <input type="hidden" name="id" value="<?= $id ?>">
-                                                                        <input type="text" 
-                                                                               name="label" 
-                                                                               value="<?= $label; ?>" 
-                                                                               class="form-control">
-                                                                    </div>
-                                                        </div>
-
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                                                            <button type="submit" class="btn btn-primary">Save changes</button>
-                                                        </div>
-                                                        <?php echo form_close() ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </tbody>
-                                    <?php endforeach; ?>
-                                        <!-- Modal Tambah Label -->
-                                        <div class="modal inmodal" id="myModal" 
-                                             tabindex="-1" role="dialog" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content animated bounceInRight">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal">
-                                                            <span aria-hidden="true">&times;</span>
-                                                            <span class="sr-only">Close</span>
-                                                        </button>
-                                                        
-                                                        <i class="fa fa-laptop modal-icon"></i>
-                                                        <h4 class="modal-title">Tambah Level</h4>
-                                                        <small class="font-bold">Input level yang ada dari setiap training yang telah dijalankan.</small>
-                                                    </div>
-
-                                                    <div class="modal-body">
-                                                        <form action="<?php echo base_url(). 'admin/tambah_label'?>" method="post">
-                                                            <p><strong>Level</strong> : Kalkulasi dari semua evidence yang telah disubmit oleh masing-masing unit, semakin banyak evidence yang telah disubmit oleh masing-masing unit akan membuat level unit tersebut semakin meningkat.</p>
-                                                            <div class="form-group">
-                                                                <label>Level Input</label> 
-                                                                <input type="text" placeholder="Enter your level" class="form-control" name="label">
-                                                            </div>
-                                                    </div>
-
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
-                                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                                    </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-
-                <div class="row">
                     <!-- JKTDE -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2>Direktorat <b>JKTDE</b></h2>
@@ -334,7 +161,7 @@ include('connection/conn.php');
                     </div>
 
                     <!-- JKTDF -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2>Direktorat <b>JKTDF</b></h2>
@@ -346,7 +173,7 @@ include('connection/conn.php');
                     </div>
 
                     <!-- JKTDG -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2>Direktorat <b>JKTDG</b></h2>
@@ -358,7 +185,7 @@ include('connection/conn.php');
                     </div>
 
                     <!-- JKTDN -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2>Direktorat <b>JKTDN</b></h2>
@@ -370,7 +197,7 @@ include('connection/conn.php');
                     </div> 
 
                     <!-- JKTDI -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2>Direktorat <b>JKTDI</b></h2>
@@ -382,7 +209,7 @@ include('connection/conn.php');
                     </div>
 
                     <!-- JKTDO -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2>Direktorat <b>JKTDO</b></h2>
@@ -394,7 +221,7 @@ include('connection/conn.php');
                     </div>
 
                     <!-- JKTDR -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2>Direktorat <b>JKTDR</b></h2>
@@ -406,7 +233,7 @@ include('connection/conn.php');
                     </div>
 
                     <!-- JKTDZ -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2>Direktorat <b>JKTDZ</b></h2>
@@ -422,7 +249,7 @@ include('connection/conn.php');
 
                 <div class="row">
                     <!-- SINAM -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2><b>SINAM</b></h2>
@@ -434,7 +261,7 @@ include('connection/conn.php');
                     </div>
 
                     <!-- SYDAM -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2><b>SYDAM</b></h2>
@@ -446,7 +273,7 @@ include('connection/conn.php');
                     </div>
 
                     <!-- TYOAM -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2><b>TYOAM</b></h2>
@@ -458,7 +285,7 @@ include('connection/conn.php');
                     </div>
 
                     <!-- SHAAM -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2><b>SHAAM</b></h2>
@@ -470,7 +297,7 @@ include('connection/conn.php');
                     </div>
 
                     <!-- MESAM -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2><b>MESAM</b></h2>
@@ -482,7 +309,7 @@ include('connection/conn.php');
                     </div>
 
                     <!-- SUBAM -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2><b>SUBAM</b></h2>
@@ -494,7 +321,7 @@ include('connection/conn.php');
                     </div>
 
                     <!-- UPGAM -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2><b>UPGAM</b></h2>
@@ -506,7 +333,7 @@ include('connection/conn.php');
                     </div>                    
 
                     <!-- JKTAM -->
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2><b>JKTAM</b></h2>
@@ -517,7 +344,7 @@ include('connection/conn.php');
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2><b>LON&AMS</b></h2>
@@ -528,7 +355,7 @@ include('connection/conn.php');
                         </div>
                     </div>   
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="ibox float-e-margins">                        
                             <div class="ibox-content">
                                 <h2><b>JED&MED</b></h2>
@@ -540,301 +367,13 @@ include('connection/conn.php');
                     </div>                                                   
                 </div>
 
-                <div class="row">
-                <!-- KNOB CHART _-->
-                    <div class="col-lg-6">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-content">
-                                <div>
-                                    <h3 class="font-bold no-margins">
-                                        Average Tiap Direktorat
-                                    </h3>
-                            
-                                    <small>Garuda Indonesia</small>
-                                </div>
-
-                                <div class="m-t-sm">
-                                    <div class="row">                                
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgJKTDC[0]->Evidence,2,".","."); ?>
-                                                data-min="<?php echo $total_label[0]->Jumlah;?>" 
-                                                data-max="100"
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4"
-                                                data-readonly="true">                  
-                                            <div class="knob-label">JKTDC</div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgJKTDE[0]->Evidence,2,".","."); ?>                   
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4"
-                                                data-readonly="true">                  
-                                            <div class="knob-label">JKTDE</div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgJKTDF[0]->Evidence,2,".","."); ?>                  
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4"
-                                                data-readonly="true">                  
-                                            <div class="knob-label">JKTDF</div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgJKTDG[0]->Evidence,2,".","."); ?>                  
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4"
-                                                data-readonly="true">                  
-                                            <div class="knob-label">JKTDG</div>
-                                        </div>                                
-                                    </div>
-
-                                    <div class="row">                                
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgJKTDI[0]->Evidence,2,".","."); ?>                  
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4" 
-                                                data-readonly="true">                  
-                                            <div class="knob-label">JKTDI</div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgJKTDN[0]->Evidence,2,".","."); ?>                  
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4" 
-                                                data-readonly="true">                  
-                                            <div class="knob-label">JKTDN</div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgJKTDO[0]->Evidence,2,".","."); ?>                  
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4" 
-                                                data-readonly="true">                  
-                                            <div class="knob-label">JKTDO</div>
-                                        </div>                               
-                                    </div>
-
-                                    <div class="row">                                
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgJKTDR[0]->Evidence,2,".","."); ?>                  
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4" 
-                                                data-readonly="true">                  
-                                            <div class="knob-label">JKTDR</div>
-                                        </div>
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgJKTDZ[0]->Evidence,2,".","."); ?>                  
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4" 
-                                                data-readonly="true">                  
-                                            <div class="knob-label">JKTDZ</div>
-                                        </div>                             
-                                    </div>
-                                </div>
-                            
-                                <div class="m-t-md">                            
-                                    <small>
-                                        <strong>Keterangan:</strong> Setiap chart akan menampilkan average dari masing-masing level tiap unit yang ada
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-content">
-                                <div>
-                                    <h3 class="font-bold no-margins">
-                                        Average Tiap BO
-                                    </h3>
-                                
-                                    <small>Garuda Indonesia</small>
-                                </div>
-
-                                <div class="m-t-sm">
-                                    <div class="row">
-                                        <!-- SINAM -->
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgSINAM[0]->Evidence,2,".","."); ?>
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4"
-                                                data-readonly="true">                  
-                                            <div class="knob-label">SINAM</div>
-                                        </div>
-
-                                        <!-- SYDAM -->
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgSYDAM[0]->Evidence,2,".","."); ?>
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4" 
-                                                data-readonly="true">                  
-                                            <div class="knob-label">SYDAM</div>
-                                        </div>
-
-                                        <!-- TYOAM -->
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgTYOAM[0]->Evidence,2,".","."); ?>
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4" 
-                                                data-readonly="true">                  
-                                            <div class="knob-label">TYOAM</div>
-                                        </div>
-
-                                        <!-- SHAAM -->
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgSHAAM[0]->Evidence,2,".","."); ?>
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4"
-                                                data-readonly="true">                  
-                                            <div class="knob-label">SHAAM</div>
-                                        </div>                                                                                     
-                                    </div>
-
-                                    <div class="row">
-                                        <!-- MESAM -->
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgMESAM[0]->Evidence,2,".","."); ?>
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4"
-                                                data-readonly="true">                  
-                                            <div class="knob-label">MESAM</div>
-                                        </div>
-
-                                        <!-- SUBAM -->
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgSUBAM[0]->Evidence,2,".","."); ?>
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4" 
-                                                data-readonly="true">                  
-                                            <div class="knob-label">SUBAM</div>
-                                        </div>
-                                        
-                                        <!-- UPGAM -->
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgUPGAM[0]->Evidence,2,".","."); ?>
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4" 
-                                                data-readonly="true">                  
-                                            <div class="knob-label">UPGAM</div>
-                                        </div>
-
-                                        <!-- JKTAM -->
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgJKTAM[0]->Evidence,2,".","."); ?>              
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4"
-                                                data-readonly="true">                  
-                                            <div class="knob-label">JKTAM</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <!-- LON&AMS -->
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgLON_AMS[0]->Evidence,2,".","."); ?>
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4"
-                                                data-readonly="true">                  
-                                            <div class="knob-label">LON&AMS</div>
-                                        </div>
-
-                                        <!-- JED&MED -->
-                                        <div class="col-xs-6 col-md-6 text-center">
-                                            <input type="text" class="knob"                                             
-                                                value=<?php echo number_format($avgJED_MED[0]->Evidence,2,".","."); ?>
-                                                data-min="0" 
-                                                data-max=<?php echo $total_label[0]->Jumlah;?> 
-                                                data-width="90" 
-                                                data-height="100" 
-                                                data-fgColor= "#4286f4" 
-                                                data-readonly="true">                  
-                                            <div class="knob-label">JED&MED</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="m-t-md">                            
-                                    <small>
-                                        <strong>Keterangan:</strong> Setiap chart akan menampilkan average dari masing-masing level tiap BO yang ada
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                
                 </div>
             </div>
 
 
             <div class="footer">
-                    <strong>Copyright</strong> Garuda Indonesia &copy; 2017
+                    <strong>Copyright</strong> Garuda Indonesia &copy; 2018
             </div>
         </div>
     </div>

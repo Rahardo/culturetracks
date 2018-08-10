@@ -56,6 +56,10 @@ include('connection/conn.php');
                         <a href="<?php echo base_url()?>admin_radar/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Performance</span></a>
 
                     </li>
+                    <li class="">
+                        <a href="<?php echo base_url()?>admin/dashboard_bobot"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Bobot</span></a>
+
+                    </li>
                     <li>
                         <a href="<?php echo base_url()?>admin/dashboard_warrior"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Warrior</span></a>
 

@@ -2,6 +2,24 @@
 session_start();
 include('connection/conn.php');
 ?>
+<?php
+                              if($this->input->post('is_submitted')){
+                                          $bobot1      = set_value('bobot1');
+                                          $bobot2      = set_value('bobot2');
+                                          $bobot3      = set_value('bobot3');
+                                          $bobot4      = set_value('bobot4');
+                                          $bobot5      = set_value('bobot5');
+                                          $bobot6      = set_value('bobot6');
+                              }
+                              else {
+                                          $bobot1      = $bobot->bobot1;
+                                          $bobot2      = $bobot->bobot2;
+                                          $bobot3      = $bobot->bobot3;
+                                          $bobot4      = $bobot->bobot4;
+                                          $bobot5      = $bobot->bobot5;
+                                          $bobot6      = $bobot->bobot6;
+                              }
+                            ?>
 <!DOCTYPE html>
 <html>
 
@@ -54,13 +72,15 @@ include('connection/conn.php');
                     </li>
                     <li>
                         <a href="<?php echo base_url()?>admin_radar/index"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Performance</span></a>
-
-                    </li>
-                    <li class="">
-                        <a href="<?php echo base_url()?>admin/dashboard_bobot"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Bobot</span></a>
+                        
 
                     </li>
                     <li class="active">
+                        <a href="<?php echo base_url()?>admin/dashboard_bobot"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Bobot</span></a>
+
+                    </li>
+
+                    <li class="">
                         <a href="<?php echo base_url()?>admin/dashboard_warrior"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard Warrior</span></a>
 
                     </li>
@@ -115,320 +135,146 @@ include('connection/conn.php');
               </ul>
           </nav>
         </div>
-          <div class="row  border-bottom white-bg dashboard-header">
-                <div class="row">
-          <div class="col-md-4 col-sm-4 col-xs-12 widget_tally_box">
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Jakarta Raya and <br>International Region</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
+          
 
-                <table class="table table-hover table-bordered" style="font-size:14px">
-                  <thead>
-                    <tr>
-                      <th style="width:80%">Unit</th>
-                      <th style="text-align:center">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php 
-                    $n=1;
-                    $queries=mysqli_query($con,"SELECT a.*,b.nama_unit,b.kode_dir FROM (SELECT DISTINCT(unit_name),nopeg,kode FROM ca_performance_upload LEFT JOIN baru_warrior on ca_performance_upload.unit_name=baru_warrior.unit where ca_performance_upload.kode='5')a JOIN unit b on a.unit_name=b.kode_unit");
-                    while ($row=mysqli_fetch_array($queries)) {
-
-                      ?>
-                      <?php 
-                      if ($row['nopeg']==null&&empty($row['nopeg'])) {
-                        ?>
-                        <tr style=" background:#f7f7f7">
-                          <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
-                          <td style="text-align:center" >
-                            <i class="fa fa-circle" style="color:red"></i>
-                          </td>
-                        </tr>
-                        <?php                        
-                      } else {
-                        ?>
-                        <tr>
-                          <td><a href="<?php echo base_url()?>admin/progress_warrior/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
-                          <td style="text-align:center" >
-                            <i class="fa fa-check-circle" style="color:green"></i>
-                          </td>
-                        </tr>
-                        <?php 
-
-                      }
-                      ?>
-                      <?php 
-                    }
-
-                    ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="x_panel">
-              <div class="x_title">
-                <h2>Kalimantan, Sulawesi, & <br>Papua Region</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a href="#">Settings 1</a>
-                      </li>
-                      <li><a href="#">Settings 2</a>
-                      </li>
-                    </ul>
-                  </li>
-                  </li>
-                </ul>
-                <div class="clearfix"></div>
-              </div>
-              <div class="x_content">
-
-                <table class="table table-hover table-bordered" style="font-size:14px">
-                  <thead>
-                    <tr>
-                      <th style="width:80%">Unit</th>
-                      <th style="text-align:center">Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php 
-                    $n=1;
-                    $queries=mysqli_query($con,"SELECT a.*,b.nama_unit,b.kode_dir FROM (SELECT DISTINCT(unit_name),nopeg,kode FROM ca_performance_upload LEFT JOIN baru_warrior on ca_performance_upload.unit_name=baru_warrior.unit where ca_performance_upload.kode='4')a JOIN unit b on a.unit_name=b.kode_unit");
-                    while ($row=mysqli_fetch_array($queries)) {
-
-                      ?>
-                      <?php 
-                      if ($row['nopeg']==null&&empty($row['nopeg'])) {
-                        ?>
-                        <tr style=" background:#f7f7f7">
-                          <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
-                          <td style="text-align:center" >
-                            <i class="fa fa-circle" style="color:red"></i>
-                          </td>
-                        </tr>
-                        <?php                        
-                      } else {
-                        ?>
-                        <tr>
-                          <td><a href="<?php echo base_url()?>admin/progress_warrior/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a>)</td>
-                          <td style="text-align:center" >
-                            <i class="fa fa-check-circle" style="color:green"></i>
-                          </td>
-                        </tr>
-                        <?php 
-
-                      }
-                      ?>
-                      <?php 
-                    }
-
-                    ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-            <div class="col-md-4 col-sm-4    col-xs-12">
-              </div>
-
-              <div class="col-md-8 col-sm-8    col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Head Office</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <table class="table table-hover table-bordered" style="font-size:14px">
-                      <thead>
-                        <tr>
-                          <th style="width:80%">Unit</th>
-                          <th style="text-align:center">Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php 
-                        $n=1;
-                        $queries=mysqli_query($con,"SELECT a.*,b.nama_unit,b.kode_dir FROM (SELECT DISTINCT(unit_name),nopeg,kode FROM ca_performance_upload LEFT JOIN baru_warrior on ca_performance_upload.unit_name=baru_warrior.unit where ca_performance_upload.kode='1')a JOIN unit b on a.unit_name=b.kode_unit");
-                        while ($row=mysqli_fetch_array($queries)) {
-
-                          ?>
-                          <?php 
-                          if ($row['nopeg']==null&&empty($row['nopeg'])) {
-                            ?>
-                            <tr style=" background:#f7f7f7">
-                              <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
-                              <td style="text-align:center" >
-                                <i class="fa fa-circle" style="color:red"></i>
-                              </td>
-                            </tr>
-                            <?php                        
-                          } else {
-                            ?>
-                            <tr>
-                              <td><a href="<?php echo base_url()?>admin/progress_warrior/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
-                              <td style="text-align:center" >
-                                <i class="fa fa-check-circle" style="color:green"></i>
-                              </td>
-                            </tr>
-                            <?php 
-
-                          }
-                          ?>
-                          <?php 
-                        }
-
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+              
 
 
-              <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Sumatera Region</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      </li>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
+        <div class="col-lg-6">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Bobot Nilai <small>Berisi persentase bobot dari masing - masing asessment yang ada.</small></h5>
+                                <div class="ibox-tools">
+                                    <a class="collapse-link">
+                                        <i class="fa fa-chevron-up"></i>
+                                    </a>
 
-                    <table class="table table-hover table-bordered" style="font-size:14px">
-                      <thead>
-                        <tr>
-                          <th style="width:80%">Unit</th>
-                          <th style="text-align:center">Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php 
-                        $n=1;
-                        $queries=mysqli_query($con,"SELECT a.*,b.nama_unit,b.kode_dir FROM (SELECT DISTINCT(unit_name),nopeg,kode FROM ca_performance_upload LEFT JOIN baru_warrior on ca_performance_upload.unit_name=baru_warrior.unit where ca_performance_upload.kode='2')a JOIN unit b on a.unit_name=b.kode_unit");
-                        while ($row=mysqli_fetch_array($queries)) {
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa fa-wrench"></i>
+                                    </a>
 
-                          ?>
-                          <?php 
-                          if ($row['nopeg']==null&&empty($row['nopeg'])) {
-                            ?>
-                            <tr style=" background:#f7f7f7">
-                              <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
-                              <td style="text-align:center" >
-                                <i class="fa fa-circle" style="color:red"></i>
-                              </td>
-                            </tr>
-                            <?php                        
-                          } else {
-                            ?>
-                            <tr>
-                              <td><a href="<?php echo base_url()?>admin/progress_warrior/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
-                              <td style="text-align:center" >
-                                <i class="fa fa-check-circle" style="color:green"></i>
-                              </td>
-                            </tr>
-                            <?php 
+                                    <a class="close-link">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </div>
+                            </div>
 
-                          }
-                          ?>
-                          <?php 
-                        }
+                            <div class="ibox-content">                            
+                            <?php echo form_open_multipart('admin/dashboard_bobot/')?>
+                                <div class="box-body">                              
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5><strong>Bobot 1</strong></h5>
+                                            <h5>Nilai hasil Questionaire</h5>
+                                        </div>
 
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-4 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Jawa, Bali,<br>Nusa Tenggara Region </h2>
-                    
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
+                                        <div class="col-md-3">
+                                        <br>
+                                            <div class="input-group">                  
+                                                <input type="text" class="form-control" name="bobot1" placeholder="Bobot" style="font-size: 11px" value="<?= $bobot1 ?>">
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                    <table class="table table-hover table-bordered" style="font-size:14px">
-                      <thead>
-                        <tr>
-                          <th style="width:80%">Unit</th>
-                          <th style="text-align:center">Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php 
-                        $n=1;
-                        $queries=mysqli_query($con,"SELECT a.*,b.nama_unit,b.kode_dir FROM (SELECT DISTINCT(unit_name),nopeg,kode FROM ca_performance_upload LEFT JOIN baru_warrior on ca_performance_upload.unit_name=baru_warrior.unit where ca_performance_upload.kode='3')a JOIN unit b on a.unit_name=b.kode_unit");
-                        while ($row=mysqli_fetch_array($queries)) {
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5><strong>Bobot 2</strong></h5>
+                                            <h5>Nilai dari FGD</h5>
+                                        </div>
 
-                          ?>
+                                        <div class="col-md-3">
+                                        <br>
+                                            <div class="input-group">                  
+                                                <input type="text" class="form-control" name="bobot2" placeholder="Bobot" style="font-size: 11px" value="<?= $bobot2 ?>">
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5><strong>Bobot 3</strong></h5>
+                                            <h5>Nilai dari Wawancara</h5>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                        <br>
+                                            <div class="input-group">                  
+                                                <input type="text" class="form-control" name="bobot3" placeholder="Bobot" style="font-size: 11px" value="<?= $bobot3 ?>">
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5><strong>Bobot 4</strong></h5>
+                                            <h5>Nilai dari Presentasi</h5>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                        <br>
+                                            <div class="input-group">                  
+                                                <input type="text" class="form-control" name="bobot4" placeholder="Bobot" style="font-size: 11px" value="<?= $bobot4 ?>">
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5><strong>Bobot 5</strong></h5>
+                                            <h5>Nilai dari Observasi</h5>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                        <br>
+                                            <div class="input-group">                  
+                                                <input type="text" class="form-control" name="bobot5" placeholder="Bobot" style="font-size: 11px" value="<?= $bobot5 ?>">
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </div> 
+
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5><strong>Bobot 6</strong></h5>
+                                            <h5>Nilai dari Observasi</h5>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                        <br>
+                                            <div class="input-group">                  
+                                                <input type="text" class="form-control" name="bobot6" placeholder="Bobot" style="font-size: 11px" value="<?= $bobot5 ?>">
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <!-- /.box-body -->
+                              
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="box-footer">
+                                        <button type="submit" 
+                                                class="btn btn-success" 
+                                                onclick="return confirm(\'Apakah Anda Yakin?\')">Simpan
+                                        </button>
+                                    </div>
+                                </div>
+                            <?php echo form_close()?>                              
+                            </div>
+
+                        </div>
+                    </div
 
 
-                          <?php 
-                          if ($row['nopeg']==null&&empty($row['nopeg'])) {
-                            ?>
-                            <tr style=" background:#f7f7f7">
-                              <td><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</td>
-                              <td style="text-align:center" >
-                                <i class="fa fa-circle" style="color:red"></i>
-                              </td>
-                            </tr>
-                            <?php                        
-                          } else {
-                            ?>
-                            <tr>
-                              <td><a href="<?php echo base_url()?>admin/progress_warrior/<?php echo $row['unit_name']?>"><b><?php echo $row['unit_name'];?></b> (<?php echo $row['nama_unit'];?>)</a></td>
-                              <td style="text-align:center" >
-                                <i class="fa fa-check-circle" style="color:green"></i>
-                              </td>
-                            </tr>
-                            <?php 
-
-                          }
-                          ?>
-
-
-                          <?php 
-                        }
-
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+              
 
               </div>
             </div>
                 <div class="footer">
                     <div>
-                        <strong>Copyright</strong> &copy; 2017 Garuda Indonesia. All rights reserved.
+                        <strong>Copyright</strong> &copy; 2018 Garuda Indonesia. All rights reserved.
                     </div>
                 </div>
           </div>

@@ -104,6 +104,13 @@
                                   </div>
                                 </div>
                                 <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Pegawai 
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                  <input type="text" id="first-name" required name="nama" class="form-control col-md-7 col-xs-12">
+                                </div>
+                              </div>
+                                <div class="form-group">
                                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Posisi di TIB 
                                   </label>
                                   <div class="col-md-6 col-sm-6 col-xs-12">
@@ -178,6 +185,7 @@
                                                     if($this->input->post('is_submitted')){
 
                                                                 $nopeg          = set_value('nopeg');
+                                                                $nama          = set_value('nama');
                                                                 $posisi         = set_value('posisi');
                                                                 $unit           = set_value('unit');
                                                                 $direktorat     = set_value('direktorat');
@@ -186,6 +194,7 @@
                                                     }
                                                     else {
                                                                 $nopeg          = $warrior[$i]->nopeg;
+                                                                $nama          = $warrior[$i]->nama;
                                                                 $posisi         = $warrior[$i]->posisi;
                                                                 $unit           = $warrior[$i]->unit;
                                                                 $direktorat     = $warrior[$i]->direktorat;
@@ -200,6 +209,13 @@
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                   <input type="text" id="first-name" name="nopeg" required class="form-control col-md-7 col-xs-12" value="<?php echo $nopeg?>">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Pegawai 
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                  <input type="text" id="first-name" required name="nama" class="form-control col-md-7 col-xs-12" value="<?php echo $nama?>">
                                 </div>
                               </div>
                               <div class="form-group">
@@ -270,6 +286,13 @@
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                   <input type="text" id="first-name" name="nopeg" required class="form-control col-md-7 col-xs-12" value="<?php echo $nopeg?>">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nama Pegawai 
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                  <input type="text" id="first-name" required name="nama" class="form-control col-md-7 col-xs-12" value="<?php echo $nama?>">
                                 </div>
                               </div>
                               <div class="form-group">
