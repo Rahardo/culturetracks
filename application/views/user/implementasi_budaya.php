@@ -1,3 +1,34 @@
+<?php
+session_start();
+include('connection/conn.php');
+?>
+<?php 
+                                  $uname = $this->session->userdata('username');
+                                  $cc1=mysqli_query($con, "SELECT * FROM cc_program_eval where input_user_c='".$uname."'  and input_bulan='08' and input_detail_c='AKSELERASI'");
+
+                                  $isi1=mysqli_fetch_array($cc1)['input_realisasi_'];
+
+                                  $cc2=mysqli_query($con, "SELECT * FROM cc_program_eval where input_user_c='".$uname."'  and input_bulan='09' and input_detail_c='AKSELERASI'");
+
+                                  $isi2=mysqli_fetch_array($cc2)['input_realisasi_'];
+
+                                  $cc3=mysqli_query($con, "SELECT * FROM cc_program_eval where input_user_c='".$uname."'  and input_bulan='10' and input_detail_c='AKSELERASI'");
+
+                                  $isi3=mysqli_fetch_array($cc3)['input_realisasi_'];
+
+                                 
+
+                                  ?>
+                  <?php
+
+
+                        $dataPoints = array( 
+                          array("y" => $isi1, "label" => "Agustus" ),
+                          array("y" => $isi2, "label" => "September" ),
+                          array("y" => $isi3, "label" => "Oktober" ),
+                        );
+                         
+                        ?>
 <!DOCTYPE html>
 <html>
 
@@ -6,8 +37,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/png" href="<?php echo base_url()?>assets/gi.ico">
-    <title>Garuda Indonesia</title>
+
+    <title>Garuda Indonesia | Dashboard</title>
+
 
     <link rel="icon" type="image/png" href="<?php echo base_url()?>assets/gi.ico">
     <link href="<?php echo base_url()?>css/bootstrap.min.css" rel="stylesheet">
@@ -16,6 +48,43 @@
     <link href="<?php echo base_url()?>css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="<?php echo base_url()?>css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url()?>css/style.css" rel="stylesheet">
+
+    <link href="<?php echo base_url()?>css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="<?php echo base_url()?>assets/gi.ico">
+    <link href="<?php echo base_url()?>font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="<?php echo base_url()?>css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="<?php echo base_url()?>js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+    <link href="<?php echo base_url()?>css/animate.css" rel="stylesheet">
+    <link href="<?php echo base_url()?>css/style.css" rel="stylesheet">
+
+    <script>
+window.onload = function() {
+ 
+var chart = new CanvasJS.Chart("chartContainer", {
+  animationEnabled: true,
+  theme: "light2",
+  title:{
+    text: "Pencapaian Budaya Organisasi"
+  },
+  axisY: {
+    title: "Tahun"
+  },
+  data: [{
+    type: "column",
+    yValueFormatString: "#,##0.## tonnes",
+    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+  }]
+});
+chart.render();
+ 
+}
+</script>
+
 
 </head>
 <body class="top-navigation">
@@ -350,6 +419,14 @@
                           </div>
                         </div>
                         </div>
+                        <div class="col-md-3">
+                        </div>
+
+                        <div class="col-md-9">
+                  <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+                </div>
               </div>
             </div>
             <br />
