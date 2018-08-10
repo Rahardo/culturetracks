@@ -260,10 +260,16 @@ class User extends CI_Controller {
 			$this->load->view('user/warrior');
 		}
 		else {
+			date_default_timezone_set('Asia/Jakarta');
+			$mydate=getdate(date("U"));
+			$jam = date('H:i:s a');
+			$data = "$mydate[month] $mydate[mday], $mydate[year] $jam";
+			$month = date('m');
 			$data_warrior = array(
 								'nopeg'			=> $this->input->post('nopeg'),
 								'unit'			=> $this->session->userdata('unit'),
 								'direktorat'	=> $this->session->userdata('direktorat'),
+								'input_bulan'	=> $month,
 								'status_aktif'	=> $this->input->post('status_aktif'),
 								'email'			=> $this->input->post('email')
 
@@ -315,12 +321,18 @@ class User extends CI_Controller {
 			$this->load->view('user/timbudaya');
 		}
 		else {
+			date_default_timezone_set('Asia/Jakarta');
+			$mydate=getdate(date("U"));
+			$jam = date('H:i:s a');
+			$data = "$mydate[month] $mydate[mday], $mydate[year] $jam";
+			$month = date('m');
 			$data_warrior = array(
 								'nopeg'			=> $this->input->post('nopeg'),
 								'nama'			=> $this->input->post('nama'),
 								'posisi'		=> $this->input->post('posisi'),
 								'unit'			=> $this->session->userdata('unit'),
 								'direktorat'	=> $this->session->userdata('direktorat'),
+								'input_bulan'	=> $month,
 								'status_aktif'	=> $this->input->post('status_aktif'),
 								'email'			=> $this->input->post('email')
 

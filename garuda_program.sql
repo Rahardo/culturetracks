@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2018 at 08:32 AM
+-- Generation Time: Aug 10, 2018 at 09:50 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -34,6 +34,7 @@ CREATE TABLE `baru_tim_implementasi_budaya` (
   `posisi` varchar(255) NOT NULL,
   `unit` varchar(255) NOT NULL,
   `direktorat` varchar(255) NOT NULL,
+  `input_bulan` varchar(255) NOT NULL,
   `status_aktif` tinyint(4) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -42,10 +43,11 @@ CREATE TABLE `baru_tim_implementasi_budaya` (
 -- Dumping data for table `baru_tim_implementasi_budaya`
 --
 
-INSERT INTO `baru_tim_implementasi_budaya` (`nopeg`, `nama`, `posisi`, `unit`, `direktorat`, `status_aktif`, `email`) VALUES
-('455666', 'naren', 'kacung', 'JKTID', 'JKTDI', 1, 'naren@kacung.com'),
-('Rahadhiwardaya Muhammad', '', 'jan', 'JKTDB', 'JKTDZ', 1, 'ardo@ardo.com'),
-('Rahadhiwardaya sdad', 'Rahadhiwardaya Muhammad', 'jan', 'JKTID', 'JKTDI', 1, 'naren@kacung.com');
+INSERT INTO `baru_tim_implementasi_budaya` (`nopeg`, `nama`, `posisi`, `unit`, `direktorat`, `input_bulan`, `status_aktif`, `email`) VALUES
+('455666', 'naren', 'kacung', 'JKTID', 'JKTDI', '', 1, 'naren@kacung.com'),
+('Muhammad', 'Rahadhiwardaya Muhammad', 'jan', 'BKKDM', 'JKTDG', '08', 1, 'ardo@ardo.com'),
+('Rahadhiwardaya Muhammad', '', 'jan', 'JKTDB', 'JKTDZ', '', 1, 'ardo@ardo.com'),
+('Rahadhiwardaya sdad', 'Rahadhiwardaya Muhammad', 'jan', 'JKTID', 'JKTDI', '', 1, 'naren@kacung.com');
 
 -- --------------------------------------------------------
 
@@ -57,6 +59,7 @@ CREATE TABLE `baru_warrior` (
   `nopeg` varchar(100) NOT NULL,
   `unit` varchar(100) NOT NULL,
   `direktorat` varchar(100) NOT NULL,
+  `input_bulan` varchar(255) NOT NULL,
   `status_aktif` tinyint(4) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -65,11 +68,12 @@ CREATE TABLE `baru_warrior` (
 -- Dumping data for table `baru_warrior`
 --
 
-INSERT INTO `baru_warrior` (`nopeg`, `unit`, `direktorat`, `status_aktif`, `email`) VALUES
-('1122334', 'BIK', 'JKTDN', 1, 'narendra1@windowslive.com'),
-('1231233', 'JKTRN', 'JKTDR', 1, '12@f.com'),
-('123456', 'JKTDB', 'JKTDZ', 1, 'farihfadli44@gmail.com'),
-('528424', 'JKTID', 'JKTDI', 1, 'ferdianwidyatama@gmail.com');
+INSERT INTO `baru_warrior` (`nopeg`, `unit`, `direktorat`, `input_bulan`, `status_aktif`, `email`) VALUES
+('1122334', 'BIK', 'JKTDN', '', 1, 'narendra1@windowslive.com'),
+('1231233', 'JKTRN', 'JKTDR', '', 1, '12@f.com'),
+('123456', 'JKTDB', 'JKTDZ', '', 1, 'farihfadli44@gmail.com'),
+('528424', 'JKTID', 'JKTDI', '', 1, 'ferdianwidyatama@gmail.com'),
+('Muhammad', 'BKKDM', 'JKTDG', '08', 1, 'ardo@ardo.com');
 
 -- --------------------------------------------------------
 
