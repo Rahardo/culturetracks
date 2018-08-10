@@ -72,7 +72,7 @@ class admin_radar extends CI_Controller
 	{
 		//$id = $this->input->post('id');
 		$data_label= array(
-			'label' => $this->input->post('label'), 
+			'score' => $this->input->post('score'), 
 		);
 		$this->model_users2->edit_data($data_label,$id);
 		redirect('admin');

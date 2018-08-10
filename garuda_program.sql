@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Agu 2018 pada 03.05
--- Versi server: 10.1.32-MariaDB
--- Versi PHP: 7.2.5
+-- Generation Time: Aug 10, 2018 at 08:32 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,11 +25,12 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `baru_tim_implementasi_budaya`
+-- Table structure for table `baru_tim_implementasi_budaya`
 --
 
 CREATE TABLE `baru_tim_implementasi_budaya` (
   `nopeg` varchar(255) NOT NULL,
+  `nama` varchar(50) NOT NULL,
   `posisi` varchar(255) NOT NULL,
   `unit` varchar(255) NOT NULL,
   `direktorat` varchar(255) NOT NULL,
@@ -38,18 +39,18 @@ CREATE TABLE `baru_tim_implementasi_budaya` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `baru_tim_implementasi_budaya`
+-- Dumping data for table `baru_tim_implementasi_budaya`
 --
 
-INSERT INTO `baru_tim_implementasi_budaya` (`nopeg`, `posisi`, `unit`, `direktorat`, `status_aktif`, `email`) VALUES
-('528424', 'Ketua', 'JKTID', 'JKTDI', 0, 'ferdianwidyatama@gmail.com'),
-('528425', 'Wakil', 'JKTID', 'JKTDI', 0, 'ferdianwidyatama@gmail.com'),
-('98765', 'Kacung', 'JKTDB', 'JKTDZ', 1, 'narendra1@windowslive.com');
+INSERT INTO `baru_tim_implementasi_budaya` (`nopeg`, `nama`, `posisi`, `unit`, `direktorat`, `status_aktif`, `email`) VALUES
+('455666', 'naren', 'kacung', 'JKTID', 'JKTDI', 1, 'naren@kacung.com'),
+('Rahadhiwardaya Muhammad', '', 'jan', 'JKTDB', 'JKTDZ', 1, 'ardo@ardo.com'),
+('Rahadhiwardaya sdad', 'Rahadhiwardaya Muhammad', 'jan', 'JKTID', 'JKTDI', 1, 'naren@kacung.com');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `baru_warrior`
+-- Table structure for table `baru_warrior`
 --
 
 CREATE TABLE `baru_warrior` (
@@ -61,18 +62,44 @@ CREATE TABLE `baru_warrior` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `baru_warrior`
+-- Dumping data for table `baru_warrior`
 --
 
 INSERT INTO `baru_warrior` (`nopeg`, `unit`, `direktorat`, `status_aktif`, `email`) VALUES
 ('1122334', 'BIK', 'JKTDN', 1, 'narendra1@windowslive.com'),
+('1231233', 'JKTRN', 'JKTDR', 1, '12@f.com'),
 ('123456', 'JKTDB', 'JKTDZ', 1, 'farihfadli44@gmail.com'),
 ('528424', 'JKTID', 'JKTDI', 1, 'ferdianwidyatama@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ca_performance_upload`
+-- Table structure for table `bobot`
+--
+
+CREATE TABLE `bobot` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `bobot1` int(11) NOT NULL,
+  `bobot2` int(11) NOT NULL,
+  `bobot3` int(11) NOT NULL,
+  `bobot4` int(11) NOT NULL,
+  `bobot5` int(11) NOT NULL,
+  `bobot6` int(11) NOT NULL,
+  `sampel` int(11) NOT NULL,
+  `semifinal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bobot`
+--
+
+INSERT INTO `bobot` (`id`, `bobot1`, `bobot2`, `bobot3`, `bobot4`, `bobot5`, `bobot6`, `sampel`, `semifinal`) VALUES
+(0, 30, 20, 10, 10, 10, 20, 6, '2017-08-17');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ca_performance_upload`
 --
 
 CREATE TABLE `ca_performance_upload` (
@@ -84,7 +111,7 @@ CREATE TABLE `ca_performance_upload` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `ca_performance_upload`
+-- Dumping data for table `ca_performance_upload`
 --
 
 INSERT INTO `ca_performance_upload` (`id_upload`, `id_ca`, `unit_name`, `kode`, `last_modified`) VALUES
@@ -215,7 +242,7 @@ INSERT INTO `ca_performance_upload` (`id_upload`, `id_ca`, `unit_name`, `kode`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ca_user`
+-- Table structure for table `ca_user`
 --
 
 CREATE TABLE `ca_user` (
@@ -227,7 +254,7 @@ CREATE TABLE `ca_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `ca_user`
+-- Dumping data for table `ca_user`
 --
 
 INSERT INTO `ca_user` (`id_ca`, `ca_nopeg`, `ca_password`, `status`, `last_modified`) VALUES
@@ -257,7 +284,7 @@ INSERT INTO `ca_user` (`id_ca`, `ca_nopeg`, `ca_password`, `status`, `last_modif
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cc_program`
+-- Table structure for table `cc_program`
 --
 
 CREATE TABLE `cc_program` (
@@ -272,19 +299,18 @@ CREATE TABLE `cc_program` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `cc_program`
+-- Dumping data for table `cc_program`
 --
 
 INSERT INTO `cc_program` (`cc_id`, `cc_detail`, `cc_desc`, `cc_time`, `last_modified`, `status`, `start_month`, `end_month`) VALUES
 (10, 'AKSELERASI', 'AKSELERASI (lAKukan ekSekusi targEt dengan teRAtur dan paStI) merupakan program mobitoring 3 prioritas utama unit kerja yang dilaksanakan secara teratur setiap satu minggu sekali pada hari Senin selama 30 menit.\r\n\r\n', 12, '0000-00-00 00:00:00', 'Default', '2016-09-27', '2017-11-07'),
 (13, 'SIMPONI (Sebar Informasi PriOritas terkiNI)', 'Program sharing session yang diselenggarakan secara rutin setiap minggu di unit kerja', 12, '2017-08-16 01:48:27', 'Default', '2016-11-07', '2017-11-07'),
-(14, 'How Low Can You Go ', 'Program efisiensi yang dijalankan di unit. Beberapa hal yang dapat dilakukan adalah:\n1. Efisiensi penggunaan kertas\n2. Mematikan lampu dan komputer serta listrik selama 1 jam (Martabak - MARi terApkan Bersama mati lAmpu sejenaK)\n3. Efisiensi penggunaan telepon', 12, '2017-08-16 03:13:52', 'Default', '2017-02-06', '2018-02-06'),
-(15, 'TES123', 'TES123', 1, '2018-07-30 06:52:34', 'Default', '2018-07-30', '2018-09-12');
+(14, 'How Low Can You Go ', 'Program efisiensi yang dijalankan di unit. Beberapa hal yang dapat dilakukan adalah:\n1. Efisiensi penggunaan kertas\n2. Mematikan lampu dan komputer serta listrik selama 1 jam (Martabak - MARi terApkan Bersama mati lAmpu sejenaK)\n3. Efisiensi penggunaan telepon', 12, '2017-08-16 03:13:52', 'Default', '2017-02-06', '2018-02-06');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cc_program_eval`
+-- Table structure for table `cc_program_eval`
 --
 
 CREATE TABLE `cc_program_eval` (
@@ -304,7 +330,7 @@ CREATE TABLE `cc_program_eval` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `cc_program_eval`
+-- Dumping data for table `cc_program_eval`
 --
 
 INSERT INTO `cc_program_eval` (`input_id`, `input_user_c`, `input_detail_c`, `input_realisasi`, `input_realisasi_`, `input_metodologi`, `input_reinforcement_positif`, `input_reinforcement_negatif`, `input_attach`, `input_gap`, `input_bulan`, `last_modified_c`, `input_status`) VALUES
@@ -361,12 +387,15 @@ INSERT INTO `cc_program_eval` (`input_id`, `input_user_c`, `input_detail_c`, `in
 (0, 'JKTOF', 'AKSELERASI', '67', '67', 'Monitoring Penurunan Error Rate', 'Thank You Note in Post It', 'Punishment Letter', '42376-[bagas31]-kmspico-10.2.0-final-activator.zip', '33', '08', 'August 1, 2018 10:00:28 am', 0),
 (0, 'JKTOF', 'SIMPONI (Sebar Informasi PriOritas terkiNI)', '135', '100', 'Monitoring Pengendalian Biaya', 'Thank You Note in Post It', 'Black Flag', '12274-[bagas31]-kmspico-10.2.0-final-activator.zip', '0', '08', 'August 1, 2018 10:01:26 am', 0),
 (0, 'JKTRN', 'AKSELERASI', '345', '100', 'Monitoring Laporan Pemenuhan SLA', 'Thank You Note in Post It', 'Sad Icon', '49237-[bagas31]-ezblocker---spotify-ads-remover.rar', '0', '08', 'August 2, 2018 15:33:17 pm', 0),
-(0, 'JKTRN', 'AKSELERASI', '345', '100', 'Monitoring Laporan Pemenuhan SLA', 'Thank You Note in Post It', 'Sad Icon', '76914-[bagas31]-ezblocker---spotify-ads-remover.rar', '0', '08', 'August 2, 2018 15:33:40 pm', 0);
+(0, 'JKTRN', 'AKSELERASI', '345', '100', 'Monitoring Laporan Pemenuhan SLA', 'Thank You Note in Post It', 'Sad Icon', '76914-[bagas31]-ezblocker---spotify-ads-remover.rar', '0', '08', 'August 2, 2018 15:33:40 pm', 0),
+(0, 'JKTCC', 'AKSELERASI', '10', '10', 'Monitoring pencapaian atau realisasi KPI', 'Recognition Words (Bravo,Wow,Thank You)', 'Black Flag', '43220-montserrat.zip', '90', '08', 'August 6, 2018 14:22:14 pm', 0),
+(0, 'JKTCC', 'AKSELERASI', '50', '50', 'Monitoring skedul pelaksanaan program dibandingkan target dan realisasi', 'Pin', 'Black Flag', '42722-montserrat.zip', '50', '09', 'September 6, 2018 14:25:00 pm', 0),
+(0, 'JKTDB', 'SIMPONI (Sebar Informasi PriOritas terkiNI)', '24', '60', 'Monitoring pencapaian atau realisasi KPI', 'Thank You Note in Post It', 'Black Flag', '60214-jamu-windows-repair-pro-v3.9.26-[bagas31].rar', '40', '08', 'August 9, 2018 22:14:19 pm', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cc_program_feedback`
+-- Table structure for table `cc_program_feedback`
 --
 
 CREATE TABLE `cc_program_feedback` (
@@ -381,7 +410,7 @@ CREATE TABLE `cc_program_feedback` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `cc_program_feedback`
+-- Dumping data for table `cc_program_feedback`
 --
 
 INSERT INTO `cc_program_feedback` (`fb_id`, `fb_sender`, `fb_recipient`, `fb_detail`, `fb_subject`, `last_modified`, `status`, `input_status`) VALUES
@@ -391,7 +420,7 @@ INSERT INTO `cc_program_feedback` (`fb_id`, `fb_sender`, `fb_recipient`, `fb_det
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cc_program_input`
+-- Table structure for table `cc_program_input`
 --
 
 CREATE TABLE `cc_program_input` (
@@ -405,7 +434,7 @@ CREATE TABLE `cc_program_input` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `cc_program_input`
+-- Dumping data for table `cc_program_input`
 --
 
 INSERT INTO `cc_program_input` (`input_id`, `input_user`, `input_detail`, `input_target`, `input_satuan`, `last_modified`, `input_status`) VALUES
@@ -491,12 +520,13 @@ INSERT INTO `cc_program_input` (`input_id`, `input_user`, `input_detail`, `input
 (85, 'JKTOF', 'SIMPONI (Sebar Informasi PriOritas terkiNI)', '100', 'Jumlah (kali)', '10:01:14 am', 1),
 (86, 'JKTCM', 'SIMPONI (Sebar Informasi PriOritas terkiNI)', '100', 'Persentase (%)', '08:50:08 am', 1),
 (87, 'JKTOS', 'AKSELERASI', '100', 'Persentase (%)', '11:13:52 am', 1),
-(88, 'JKTRN', 'AKSELERASI', '100', 'Persentase (%)', '15:31:29 pm', 1);
+(88, 'JKTRN', 'AKSELERASI', '100', 'Persentase (%)', '15:31:29 pm', 1),
+(89, 'JKTCC', 'AKSELERASI', '100', 'Uang (Rp)', '14:21:46 pm', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `direktorat`
+-- Table structure for table `direktorat`
 --
 
 CREATE TABLE `direktorat` (
@@ -507,7 +537,7 @@ CREATE TABLE `direktorat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `direktorat`
+-- Dumping data for table `direktorat`
 --
 
 INSERT INTO `direktorat` (`dir_id`, `dir_code`, `status`, `last_modified`) VALUES
@@ -524,7 +554,7 @@ INSERT INTO `direktorat` (`dir_id`, `dir_code`, `status`, `last_modified`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `employee`
+-- Table structure for table `employee`
 --
 
 CREATE TABLE `employee` (
@@ -538,7 +568,7 @@ CREATE TABLE `employee` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `employee`
+-- Dumping data for table `employee`
 --
 
 INSERT INTO `employee` (`iduser`, `NIP`, `nama`, `unit`, `sitacode`, `position`, `last_modified`) VALUES
@@ -8468,7 +8498,7 @@ INSERT INTO `employee` (`iduser`, `NIP`, `nama`, `unit`, `sitacode`, `position`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `evidence`
+-- Table structure for table `evidence`
 --
 
 CREATE TABLE `evidence` (
@@ -8479,7 +8509,7 @@ CREATE TABLE `evidence` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `evidence`
+-- Dumping data for table `evidence`
 --
 
 INSERT INTO `evidence` (`id_evidence`, `unit`, `bukti`, `level`) VALUES
@@ -8494,7 +8524,7 @@ INSERT INTO `evidence` (`id_evidence`, `unit`, `bukti`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `label`
+-- Table structure for table `label`
 --
 
 CREATE TABLE `label` (
@@ -8503,7 +8533,7 @@ CREATE TABLE `label` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `label`
+-- Dumping data for table `label`
 --
 
 INSERT INTO `label` (`id`, `label`) VALUES
@@ -8516,7 +8546,27 @@ INSERT INTO `label` (`id`, `label`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `skor`
+-- Table structure for table `score`
+--
+
+CREATE TABLE `score` (
+  `id` int(11) NOT NULL,
+  `indicator` varchar(100) NOT NULL,
+  `value` int(11) NOT NULL,
+  `weight` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `score`
+--
+
+INSERT INTO `score` (`id`, `indicator`, `value`, `weight`) VALUES
+(1, 'warrior', 1, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `skor`
 --
 
 CREATE TABLE `skor` (
@@ -8534,7 +8584,7 @@ CREATE TABLE `skor` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `unit`
+-- Table structure for table `unit`
 --
 
 CREATE TABLE `unit` (
@@ -8548,7 +8598,7 @@ CREATE TABLE `unit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `unit`
+-- Dumping data for table `unit`
 --
 
 INSERT INTO `unit` (`unit_id`, `nama_unit`, `kode_unit`, `kode_dir`, `kode_ca`, `kode_lokasi`, `last_update`) VALUES
@@ -8577,12 +8627,12 @@ INSERT INTO `unit` (`unit_id`, `nama_unit`, `kode_unit`, `kode_dir`, `kode_ca`, 
 (23, 'PINANGSORI', 'FLZGA', 'JKTDN', '2', 'MESAM', '0000-00-00 00:00:00'),
 (24, 'G.SITOLI', 'GNSGA', 'JKTDN', '2', 'MESAM', '0000-00-00 00:00:00'),
 (25, 'GORONTALO', 'GTOGA', 'JKTDN', '4', 'UPGAM', '0000-00-00 00:00:00'),
-(26, 'HONGKONG', 'HKGGA', 'JKTDG', '5', 'TYOAM', '0000-00-00 00:00:00'),
+(26, 'HONGKONG', 'HKGDM', 'JKTDG', '5', 'TYODM', '0000-00-00 00:00:00'),
 (27, 'HANEDA', 'HNDGA', 'JKTDG', '5', 'TYOAM', '0000-00-00 00:00:00'),
 (28, 'JEMBER', 'JBBGA', 'JKTDN', '3', 'SUBAM', '0000-00-00 00:00:00'),
 (29, 'JEDDAH', 'JEDDM', 'JKTDN', '5', 'JEDDM', '0000-00-00 00:00:00'),
 (30, 'JAKARTA', 'JKTAM', 'JKTDN', '5', 'JKTAM', '0000-00-00 00:00:00'),
-(31, 'CABIN SERVICES', 'JKTCC', 'JKTDC', '1', 'HO', '0000-00-00 00:00:00'),
+(31, 'PASSENGER SERVICES', 'JKTCC', 'JKTDC', '1', 'HO', '0000-00-00 00:00:00'),
 (32, 'COORDINATOR SALES & DISTRIBUTION', 'JKTCD', 'JKTDN', '1', 'HO', '0000-00-00 00:00:00'),
 (33, 'GROUND SERVICES', 'JKTCG', 'JKTDC', '1', 'HO', '0000-00-00 00:00:00'),
 (34, 'INFLIGHT SERVICES', 'JKTCI', 'JKTDC', '1', 'HO', '0000-00-00 00:00:00'),
@@ -8591,6 +8641,7 @@ INSERT INTO `unit` (`unit_id`, `nama_unit`, `kode_unit`, `kode_dir`, `kode_ca`, 
 (37, 'CORPORATE DEVELOPMENT STRATEGY', 'JKTDB', 'JKTDZ', '1', 'HO', '0000-00-00 00:00:00'),
 (38, 'ACQUISITION & AIRCRAFT MANAGEMENT', 'JKTDH', 'JKTDZ', '1', 'HO', '0000-00-00 00:00:00'),
 (39, 'CORPORATE SECURITY', 'JKTDK', 'JKTDZ', '1', 'HO', '0000-00-00 00:00:00'),
+(124, 'CORPORATE SECRETARY', 'JKTDS', 'JKTDZ', '1', 'HO', '2018-08-03 03:42:26'),
 (40, 'CORPORATE QUALITY, SAFETY & ENVIRONMENT MANAGEMENT', 'JKTDV', 'JKTDZ', '1', 'HO', '0000-00-00 00:00:00'),
 (41, 'DIGITAL BUSINESS', 'JKTEC', 'JKTDN', '1', 'HO', '0000-00-00 00:00:00'),
 (42, 'CARGO COMMERCIAL', 'JKTGC', 'JKTDG', '1', 'HO', '0000-00-00 00:00:00'),
@@ -8606,6 +8657,8 @@ INSERT INTO `unit` (`unit_id`, `nama_unit`, `kode_unit`, `kode_dir`, `kode_ca`, 
 (52, 'SBU UMRAH & HAJJ', 'JKTNL', 'JKTDN', '1', 'HO', '0000-00-00 00:00:00'),
 (53, 'FLIGHT OPERATIONS', 'JKTOF', 'JKTDO', '1', 'HO', '0000-00-00 00:00:00'),
 (54, 'OPERATION SUPPORT', 'JKTOS', 'JKTDO', '1', 'HO', '0000-00-00 00:00:00'),
+(125, 'PROYEK PEMBANGUNAN KANTOR KEBON SIRIH', 'JKTPG', 'JKTDI', '1', 'HO', '2018-08-03 03:43:30'),
+(126, 'PROYEK IMPLEMENTASI NEW IOCS', 'JKTPN', 'JKTDO', '1', 'HO', '2018-08-03 03:44:31'),
 (55, 'PRODUCTION & OPERATION CONTROL', 'JKTRG', 'JKTDR', '1', 'HO', '0000-00-00 00:00:00'),
 (56, 'NETWORK & ALLIANCE MANAGEMENT', 'JKTRN', 'JKTDR', '1', 'HO', '0000-00-00 00:00:00'),
 (57, 'REVENUE MANAGEMENT', 'JKTRZ', 'JKTDN', '1', 'HO', '0000-00-00 00:00:00'),
@@ -8679,7 +8732,7 @@ INSERT INTO `unit` (`unit_id`, `nama_unit`, `kode_unit`, `kode_dir`, `kode_ca`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -8690,7 +8743,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`iduser`, `username`, `password`, `role`) VALUES
@@ -8824,144 +8877,156 @@ INSERT INTO `user` (`iduser`, `username`, `password`, `role`) VALUES
 --
 
 --
--- Indeks untuk tabel `baru_tim_implementasi_budaya`
+-- Indexes for table `baru_tim_implementasi_budaya`
 --
 ALTER TABLE `baru_tim_implementasi_budaya`
   ADD PRIMARY KEY (`nopeg`);
 
 --
--- Indeks untuk tabel `baru_warrior`
+-- Indexes for table `baru_warrior`
 --
 ALTER TABLE `baru_warrior`
   ADD PRIMARY KEY (`nopeg`);
 
 --
--- Indeks untuk tabel `ca_performance_upload`
+-- Indexes for table `bobot`
+--
+ALTER TABLE `bobot`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ca_performance_upload`
 --
 ALTER TABLE `ca_performance_upload`
   ADD PRIMARY KEY (`id_upload`);
 
 --
--- Indeks untuk tabel `ca_user`
+-- Indexes for table `ca_user`
 --
 ALTER TABLE `ca_user`
   ADD PRIMARY KEY (`id_ca`);
 
 --
--- Indeks untuk tabel `cc_program`
+-- Indexes for table `cc_program`
 --
 ALTER TABLE `cc_program`
   ADD PRIMARY KEY (`cc_id`);
 
 --
--- Indeks untuk tabel `cc_program_feedback`
+-- Indexes for table `cc_program_feedback`
 --
 ALTER TABLE `cc_program_feedback`
   ADD PRIMARY KEY (`fb_id`);
 
 --
--- Indeks untuk tabel `cc_program_input`
+-- Indexes for table `cc_program_input`
 --
 ALTER TABLE `cc_program_input`
   ADD PRIMARY KEY (`input_id`);
 
 --
--- Indeks untuk tabel `direktorat`
+-- Indexes for table `direktorat`
 --
 ALTER TABLE `direktorat`
   ADD PRIMARY KEY (`dir_id`);
 
 --
--- Indeks untuk tabel `employee`
+-- Indexes for table `employee`
 --
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`iduser`);
 
 --
--- Indeks untuk tabel `evidence`
+-- Indexes for table `evidence`
 --
 ALTER TABLE `evidence`
   ADD PRIMARY KEY (`id_evidence`);
 
 --
--- Indeks untuk tabel `label`
+-- Indexes for table `label`
 --
 ALTER TABLE `label`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `skor`
+-- Indexes for table `score`
+--
+ALTER TABLE `score`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `skor`
 --
 ALTER TABLE `skor`
   ADD PRIMARY KEY (`unit`);
 
 --
--- Indeks untuk tabel `unit`
+-- Indexes for table `unit`
 --
 ALTER TABLE `unit`
   ADD PRIMARY KEY (`kode_unit`),
   ADD UNIQUE KEY `unit_id` (`unit_id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`iduser`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `ca_user`
+-- AUTO_INCREMENT for table `ca_user`
 --
 ALTER TABLE `ca_user`
   MODIFY `id_ca` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT untuk tabel `cc_program`
+-- AUTO_INCREMENT for table `cc_program`
 --
 ALTER TABLE `cc_program`
-  MODIFY `cc_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `cc_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `cc_program_feedback`
+-- AUTO_INCREMENT for table `cc_program_feedback`
 --
 ALTER TABLE `cc_program_feedback`
   MODIFY `fb_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `cc_program_input`
+-- AUTO_INCREMENT for table `cc_program_input`
 --
 ALTER TABLE `cc_program_input`
-  MODIFY `input_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `input_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
--- AUTO_INCREMENT untuk tabel `direktorat`
+-- AUTO_INCREMENT for table `direktorat`
 --
 ALTER TABLE `direktorat`
   MODIFY `dir_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `employee`
+-- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
   MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7908;
 
 --
--- AUTO_INCREMENT untuk tabel `evidence`
+-- AUTO_INCREMENT for table `evidence`
 --
 ALTER TABLE `evidence`
   MODIFY `id_evidence` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `label`
+-- AUTO_INCREMENT for table `label`
 --
 ALTER TABLE `label`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;

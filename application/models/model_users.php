@@ -1228,4 +1228,43 @@ select AVG(hasilq10) as nilai,'Risk Management' kriteria,10 id from assessment w
 		$this->db->where('nopeg', $nopeg)
 				 ->delete('baru_tim_implementasi_budaya');
 	}
+
+	public function baru_warrior($unit){
+		$this->db->where('unit', $unit);
+		return $this->db->get('baru_warrior')->result();
+		
+		// $unit = $this->session->userdata('unit');
+		// $sql = "  SELECT * ".
+		//        "    FROM baru_warrior ".
+		//        "   WHERE unit = '$unit' ";
+	}
+
+
+	public function tib($unit){
+		$this->db->where('unit', $unit);
+		return $this->db->get('baru_tim_implementasi_budaya')->result();
+		
+		// $unit = $this->session->userdata('unit');
+		// $sql = "  SELECT * ".
+		//        "    FROM baru_warrior ".
+		//        "   WHERE unit = '$unit' ";
+	}
+
+	public function bobot_abc($id_bobot){
+		//query semua record di table inovasi
+		$hasil = $this->db->where('id', $id_bobot)
+						  ->get('bobot');
+		if($hasil->num_rows() > 0){
+			return $hasil->row();
+		}
+		else {
+			return array();
+		}
+	}
+
+	public function update_bobot($id_bobot, $data_bobot) {
+		//Query update from ... where id = ...
+		$this->db->where('id', $id_bobot)
+				 ->update('bobot', $data_bobot);
+	}
 }

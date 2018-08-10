@@ -34,7 +34,7 @@ class model_users2 extends CI_Model {
 	public function edit_data($data_label,$id)
 	{		
 		$this->db->where('id',$id)
-				 ->update('label',$data_label);
+				 ->update('indicator',$data_label);
 	}
 
 	function update_data($where,$data,$table)
@@ -52,7 +52,7 @@ class model_users2 extends CI_Model {
 
 	public function list_label() 
 	{
-		$hasil = $this->db->query("SELECT * FROM label");
+		$hasil = $this->db->query("SELECT * FROM score");
 		if($hasil->num_rows() > 0){
 			return $hasil->result();
 		} else{

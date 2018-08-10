@@ -29,6 +29,7 @@ class admin extends CI_Controller {
 		$this->load->model('demografi_model');
 		$this->load->helper('text');
         $this->load->helper('form');
+        $this->load->helper('url');
         $this->load->library('image_lib');
         $this->load->library('form_validation');
 	}
@@ -46,13 +47,20 @@ class admin extends CI_Controller {
 		$data['progrescorporate'] = $this->model_admin->progrescorporate();
 		$data['progreshead'] = $this->model_admin->progresHead();
 		$data['progresbranch'] = $this->model_admin->progresBranch();
-		$data['leaderhead'] = $this->model_admin->leaderHead();
-		$data['leaderbranch'] = $this->model_admin->leaderBranch();
+
+		$bobot['bobot'] = $this->model_admin->bobot()->result();
+		foreach ($bobot['bobot'] as $b) {
+			$data['leaderhead'] = $this->model_admin->leaderHead($b->bobot1,$b->bobot2,$b->bobot3,$b->bobot4,$b->bobot5,$b->bobot6);
+		}
+		foreach ($bobot['bobot'] as $a) {
+			$data['leaderbranch'] = $this->model_admin->leaderbranch($a->bobot1,$a->bobot2,$a->bobot3,$a->bobot4,$a->bobot5,$a->bobot6);
+		}
 		$data['programho'] = $this->model_users->program_unitho();
 		$data['programjkt'] = $this->model_users->program_unitjkt();
 		$data['programkal'] = $this->model_users->program_unitkal();
 		$data['programsum'] = $this->model_users->program_unitsum();
 		$data['programjaw'] = $this->model_users->program_unitjaw();
+		//$data['baru_warrior'] = $this->model_users->baru_warrior();
 
 		//print_r($data['progres']);exit(); 
 		$this->load->view('admin/dashboard_view',$data);
@@ -71,7 +79,13 @@ class admin extends CI_Controller {
 		$data['progrescorporate'] = $this->model_admin->progrescorporate();
 		$data['progreshead'] = $this->model_admin->progresHead();
 		$data['progresbranch'] = $this->model_admin->progresBranch();
-		$data['leaderhead'] = $this->model_admin->leaderHead();
+		$bobot['bobot'] = $this->model_admin->bobot()->result();
+		foreach ($bobot['bobot'] as $b) {
+			$data['leaderhead'] = $this->model_admin->leaderHead($b->bobot1,$b->bobot2,$b->bobot3,$b->bobot4,$b->bobot5,$b->bobot6);
+		}
+		foreach ($bobot['bobot'] as $a) {
+			$data['leaderbranch'] = $this->model_admin->leaderbranch($a->bobot1,$a->bobot2,$a->bobot3,$a->bobot4,$a->bobot5,$a->bobot6);
+		}
 		//print_r($data['progres']);exit(); 
 		$this->load->view('admin/dashboard_warrior',$data);
 	}
@@ -88,7 +102,13 @@ class admin extends CI_Controller {
 		$data['progrescorporate'] = $this->model_admin->progrescorporate();
 		$data['progreshead'] = $this->model_admin->progresHead();
 		$data['progresbranch'] = $this->model_admin->progresBranch();
-		$data['leaderhead'] = $this->model_admin->leaderHead();
+		$bobot['bobot'] = $this->model_admin->bobot()->result();
+		foreach ($bobot['bobot'] as $b) {
+			$data['leaderhead'] = $this->model_admin->leaderHead($b->bobot1,$b->bobot2,$b->bobot3,$b->bobot4,$b->bobot5,$b->bobot6);
+		}
+		foreach ($bobot['bobot'] as $a) {
+			$data['leaderbranch'] = $this->model_admin->leaderbranch($a->bobot1,$a->bobot2,$a->bobot3,$a->bobot4,$a->bobot5,$a->bobot6);
+		}
 		//print_r($data['progres']);exit(); 
 		$this->load->view('admin/dashboard_implementasi_budaya',$data);
 	}
@@ -214,6 +234,48 @@ class admin extends CI_Controller {
 		//print_r($data['program']);exit();
 
 		$this->load->view('admin/progress_program',$data);
+	}
+
+	function progress_warrior($unit)
+	{	
+		$month = 7;
+		//print_r($month);
+		$data["unit"]=$unit;
+		$user = $unit;
+		$data['jumlahprogram']	= $this->model_users->jumlah_program_jalan();
+		$data['nilairealisasi']	= $this->model_users->program_unit($unit);
+		$data['program'] = $this->model_users->program_unit($unit);
+		$data['programdefault'] = $this->model_users->program_jalan();
+		$data['max'] = $this->model_users->max_bulan();
+		$data['baru_warrior'] = $this->model_users->baru_warrior($unit);
+
+	
+		/*if(!$data['nilairealisasi']) { $data['rerata'] =0; } else {
+		$data['rerata'] = $data['nilairealisasi'][0]->Total/$data['jumlahprogram']; }*/
+		//print_r($data['program']);exit();
+
+		$this->load->view('admin/progress_warrior',$data);
+	}
+
+	function progress_tib($unit)
+	{	
+		$month = 7;
+		//print_r($month);
+		$data["unit"]=$unit;
+		$user = $unit;
+		$data['jumlahprogram']	= $this->model_users->jumlah_program_jalan();
+		$data['nilairealisasi']	= $this->model_users->program_unit($unit);
+		$data['program'] = $this->model_users->program_unit($unit);
+		$data['programdefault'] = $this->model_users->program_jalan();
+		$data['max'] = $this->model_users->max_bulan();
+		$data['tib'] = $this->model_users->tib($unit);
+
+	
+		/*if(!$data['nilairealisasi']) { $data['rerata'] =0; } else {
+		$data['rerata'] = $data['nilairealisasi'][0]->Total/$data['jumlahprogram']; }*/
+		//print_r($data['program']);exit();
+
+		$this->load->view('admin/progress_tib',$data);
 	}
 
 
@@ -543,6 +605,48 @@ class admin extends CI_Controller {
 			//redirect('admin/data'); 
 		}
 	}
+		public function dashboard_bobot()
+		  {
+		    $this->form_validation->set_rules('bobot1');
+		    $this->form_validation->set_rules('bobot2');
+		    $this->form_validation->set_rules('bobot3');
+		    $this->form_validation->set_rules('bobot4');
+		    $this->form_validation->set_rules('bobot5');
+		    $this->form_validation->set_rules('bobot6');
+		    
+		    $id_bobot=0;
+
+		    if ($this->form_validation->run() == FALSE){
+		      $data['bobot'] = $this->model_users->bobot_abc($id_bobot);      
+		      $this->load->view('admin/dashboard_bobot', $data);
+		    }
+		    else {
+		        $data_bobot = array(
+		            'bobot1'        => set_value('bobot1'),
+		            'bobot2'        => set_value('bobot2'),
+		            'bobot3'        => set_value('bobot3'),
+		            'bobot4'        => set_value('bobot4'),
+		            'bobot5'        => set_value('bobot5'),
+		            'bobot6'        => set_value('bobot6')
+		          );
+		        $bobot_total = $data_bobot['bobot1']+$data_bobot['bobot2']+$data_bobot['bobot3']+$data_bobot['bobot4']+$data_bobot['bobot5']+$data_bobot['bobot6'];
+		        if($bobot_total == 100){
+		              $this->model_users->update_bobot($id_bobot, $data_bobot);
+		          $data['bobot'] = $this->model_users->bobot_abc($id_bobot);
+		          $this->load->view('admin/dashboard_bobot', $data);
+		          $message = "Nilai bobot berhasil disimpan";
+		          echo "<script type='text/javascript'>alert('$message');</script>";
+		          }
+		          else{
+		              $data['bobot'] = $this->model_users->bobot_abc($id_bobot);
+		          $this->load->view('admin/dashboard_bobot', $data);
+
+		              $message = "Nilai bobot harus sama dengan 100%";
+		          echo "<script type='text/javascript'>alert('$message');</script>";
+		          }
+		        
+		      }
+			}
 
 	function logout()
 	{

@@ -317,6 +317,7 @@ class User extends CI_Controller {
 		else {
 			$data_warrior = array(
 								'nopeg'			=> $this->input->post('nopeg'),
+								'nama'			=> $this->input->post('nama'),
 								'posisi'		=> $this->input->post('posisi'),
 								'unit'			=> $this->session->userdata('unit'),
 								'direktorat'	=> $this->session->userdata('direktorat'),
@@ -341,6 +342,7 @@ class User extends CI_Controller {
 		else {
 			$data_warrior = array(
 								'nopeg'			=> $this->input->post('nopeg'),
+								'nama'			=> $this->input->post('nama'),
 								'posisi'		=> $this->input->post('posisi'),
 								'unit'			=> $this->session->userdata('unit'),
 								'direktorat'	=> $this->session->userdata('direktorat'),
