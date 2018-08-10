@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2018 at 09:50 AM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Waktu pembuatan: 10 Agu 2018 pada 10.13
+-- Versi server: 10.1.32-MariaDB
+-- Versi PHP: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `baru_tim_implementasi_budaya`
+-- Struktur dari tabel `baru_tim_implementasi_budaya`
 --
 
 CREATE TABLE `baru_tim_implementasi_budaya` (
@@ -40,7 +40,7 @@ CREATE TABLE `baru_tim_implementasi_budaya` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `baru_tim_implementasi_budaya`
+-- Dumping data untuk tabel `baru_tim_implementasi_budaya`
 --
 
 INSERT INTO `baru_tim_implementasi_budaya` (`nopeg`, `nama`, `posisi`, `unit`, `direktorat`, `input_bulan`, `status_aktif`, `email`) VALUES
@@ -52,7 +52,7 @@ INSERT INTO `baru_tim_implementasi_budaya` (`nopeg`, `nama`, `posisi`, `unit`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `baru_warrior`
+-- Struktur dari tabel `baru_warrior`
 --
 
 CREATE TABLE `baru_warrior` (
@@ -65,20 +65,21 @@ CREATE TABLE `baru_warrior` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `baru_warrior`
+-- Dumping data untuk tabel `baru_warrior`
 --
 
 INSERT INTO `baru_warrior` (`nopeg`, `unit`, `direktorat`, `input_bulan`, `status_aktif`, `email`) VALUES
 ('1122334', 'BIK', 'JKTDN', '', 1, 'narendra1@windowslive.com'),
 ('1231233', 'JKTRN', 'JKTDR', '', 1, '12@f.com'),
 ('123456', 'JKTDB', 'JKTDZ', '', 1, 'farihfadli44@gmail.com'),
+('4545454', 'JKTCC', 'JKTDC', '08', 1, 'farihfadli44@gmail.com'),
 ('528424', 'JKTID', 'JKTDI', '', 1, 'ferdianwidyatama@gmail.com'),
 ('Muhammad', 'BKKDM', 'JKTDG', '08', 1, 'ardo@ardo.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bobot`
+-- Struktur dari tabel `bobot`
 --
 
 CREATE TABLE `bobot` (
@@ -94,16 +95,16 @@ CREATE TABLE `bobot` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `bobot`
+-- Dumping data untuk tabel `bobot`
 --
 
 INSERT INTO `bobot` (`id`, `bobot1`, `bobot2`, `bobot3`, `bobot4`, `bobot5`, `bobot6`, `sampel`, `semifinal`) VALUES
-(0, 30, 20, 10, 10, 10, 20, 6, '2017-08-17');
+(0, 10, 10, 30, 20, 15, 15, 6, '2017-08-17');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ca_performance_upload`
+-- Struktur dari tabel `ca_performance_upload`
 --
 
 CREATE TABLE `ca_performance_upload` (
@@ -115,7 +116,7 @@ CREATE TABLE `ca_performance_upload` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ca_performance_upload`
+-- Dumping data untuk tabel `ca_performance_upload`
 --
 
 INSERT INTO `ca_performance_upload` (`id_upload`, `id_ca`, `unit_name`, `kode`, `last_modified`) VALUES
@@ -246,7 +247,7 @@ INSERT INTO `ca_performance_upload` (`id_upload`, `id_ca`, `unit_name`, `kode`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ca_user`
+-- Struktur dari tabel `ca_user`
 --
 
 CREATE TABLE `ca_user` (
@@ -258,7 +259,7 @@ CREATE TABLE `ca_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ca_user`
+-- Dumping data untuk tabel `ca_user`
 --
 
 INSERT INTO `ca_user` (`id_ca`, `ca_nopeg`, `ca_password`, `status`, `last_modified`) VALUES
@@ -288,7 +289,7 @@ INSERT INTO `ca_user` (`id_ca`, `ca_nopeg`, `ca_password`, `status`, `last_modif
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cc_program`
+-- Struktur dari tabel `cc_program`
 --
 
 CREATE TABLE `cc_program` (
@@ -303,7 +304,7 @@ CREATE TABLE `cc_program` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cc_program`
+-- Dumping data untuk tabel `cc_program`
 --
 
 INSERT INTO `cc_program` (`cc_id`, `cc_detail`, `cc_desc`, `cc_time`, `last_modified`, `status`, `start_month`, `end_month`) VALUES
@@ -314,7 +315,7 @@ INSERT INTO `cc_program` (`cc_id`, `cc_detail`, `cc_desc`, `cc_time`, `last_modi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cc_program_eval`
+-- Struktur dari tabel `cc_program_eval`
 --
 
 CREATE TABLE `cc_program_eval` (
@@ -334,7 +335,7 @@ CREATE TABLE `cc_program_eval` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cc_program_eval`
+-- Dumping data untuk tabel `cc_program_eval`
 --
 
 INSERT INTO `cc_program_eval` (`input_id`, `input_user_c`, `input_detail_c`, `input_realisasi`, `input_realisasi_`, `input_metodologi`, `input_reinforcement_positif`, `input_reinforcement_negatif`, `input_attach`, `input_gap`, `input_bulan`, `last_modified_c`, `input_status`) VALUES
@@ -399,7 +400,7 @@ INSERT INTO `cc_program_eval` (`input_id`, `input_user_c`, `input_detail_c`, `in
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cc_program_feedback`
+-- Struktur dari tabel `cc_program_feedback`
 --
 
 CREATE TABLE `cc_program_feedback` (
@@ -414,7 +415,7 @@ CREATE TABLE `cc_program_feedback` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cc_program_feedback`
+-- Dumping data untuk tabel `cc_program_feedback`
 --
 
 INSERT INTO `cc_program_feedback` (`fb_id`, `fb_sender`, `fb_recipient`, `fb_detail`, `fb_subject`, `last_modified`, `status`, `input_status`) VALUES
@@ -424,7 +425,7 @@ INSERT INTO `cc_program_feedback` (`fb_id`, `fb_sender`, `fb_recipient`, `fb_det
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cc_program_input`
+-- Struktur dari tabel `cc_program_input`
 --
 
 CREATE TABLE `cc_program_input` (
@@ -438,7 +439,7 @@ CREATE TABLE `cc_program_input` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cc_program_input`
+-- Dumping data untuk tabel `cc_program_input`
 --
 
 INSERT INTO `cc_program_input` (`input_id`, `input_user`, `input_detail`, `input_target`, `input_satuan`, `last_modified`, `input_status`) VALUES
@@ -530,7 +531,7 @@ INSERT INTO `cc_program_input` (`input_id`, `input_user`, `input_detail`, `input
 -- --------------------------------------------------------
 
 --
--- Table structure for table `direktorat`
+-- Struktur dari tabel `direktorat`
 --
 
 CREATE TABLE `direktorat` (
@@ -541,7 +542,7 @@ CREATE TABLE `direktorat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `direktorat`
+-- Dumping data untuk tabel `direktorat`
 --
 
 INSERT INTO `direktorat` (`dir_id`, `dir_code`, `status`, `last_modified`) VALUES
@@ -558,7 +559,7 @@ INSERT INTO `direktorat` (`dir_id`, `dir_code`, `status`, `last_modified`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee`
+-- Struktur dari tabel `employee`
 --
 
 CREATE TABLE `employee` (
@@ -572,7 +573,7 @@ CREATE TABLE `employee` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `employee`
+-- Dumping data untuk tabel `employee`
 --
 
 INSERT INTO `employee` (`iduser`, `NIP`, `nama`, `unit`, `sitacode`, `position`, `last_modified`) VALUES
@@ -8502,7 +8503,7 @@ INSERT INTO `employee` (`iduser`, `NIP`, `nama`, `unit`, `sitacode`, `position`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `evidence`
+-- Struktur dari tabel `evidence`
 --
 
 CREATE TABLE `evidence` (
@@ -8513,7 +8514,7 @@ CREATE TABLE `evidence` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `evidence`
+-- Dumping data untuk tabel `evidence`
 --
 
 INSERT INTO `evidence` (`id_evidence`, `unit`, `bukti`, `level`) VALUES
@@ -8528,7 +8529,7 @@ INSERT INTO `evidence` (`id_evidence`, `unit`, `bukti`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `label`
+-- Struktur dari tabel `label`
 --
 
 CREATE TABLE `label` (
@@ -8537,7 +8538,7 @@ CREATE TABLE `label` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `label`
+-- Dumping data untuk tabel `label`
 --
 
 INSERT INTO `label` (`id`, `label`) VALUES
@@ -8550,7 +8551,7 @@ INSERT INTO `label` (`id`, `label`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `score`
+-- Struktur dari tabel `score`
 --
 
 CREATE TABLE `score` (
@@ -8561,7 +8562,7 @@ CREATE TABLE `score` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `score`
+-- Dumping data untuk tabel `score`
 --
 
 INSERT INTO `score` (`id`, `indicator`, `value`, `weight`) VALUES
@@ -8570,7 +8571,7 @@ INSERT INTO `score` (`id`, `indicator`, `value`, `weight`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `skor`
+-- Struktur dari tabel `skor`
 --
 
 CREATE TABLE `skor` (
@@ -8588,7 +8589,7 @@ CREATE TABLE `skor` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `unit`
+-- Struktur dari tabel `unit`
 --
 
 CREATE TABLE `unit` (
@@ -8602,7 +8603,7 @@ CREATE TABLE `unit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `unit`
+-- Dumping data untuk tabel `unit`
 --
 
 INSERT INTO `unit` (`unit_id`, `nama_unit`, `kode_unit`, `kode_dir`, `kode_ca`, `kode_lokasi`, `last_update`) VALUES
@@ -8736,7 +8737,7 @@ INSERT INTO `unit` (`unit_id`, `nama_unit`, `kode_unit`, `kode_dir`, `kode_ca`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -8747,7 +8748,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`iduser`, `username`, `password`, `role`) VALUES
@@ -8881,156 +8882,156 @@ INSERT INTO `user` (`iduser`, `username`, `password`, `role`) VALUES
 --
 
 --
--- Indexes for table `baru_tim_implementasi_budaya`
+-- Indeks untuk tabel `baru_tim_implementasi_budaya`
 --
 ALTER TABLE `baru_tim_implementasi_budaya`
   ADD PRIMARY KEY (`nopeg`);
 
 --
--- Indexes for table `baru_warrior`
+-- Indeks untuk tabel `baru_warrior`
 --
 ALTER TABLE `baru_warrior`
   ADD PRIMARY KEY (`nopeg`);
 
 --
--- Indexes for table `bobot`
+-- Indeks untuk tabel `bobot`
 --
 ALTER TABLE `bobot`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ca_performance_upload`
+-- Indeks untuk tabel `ca_performance_upload`
 --
 ALTER TABLE `ca_performance_upload`
   ADD PRIMARY KEY (`id_upload`);
 
 --
--- Indexes for table `ca_user`
+-- Indeks untuk tabel `ca_user`
 --
 ALTER TABLE `ca_user`
   ADD PRIMARY KEY (`id_ca`);
 
 --
--- Indexes for table `cc_program`
+-- Indeks untuk tabel `cc_program`
 --
 ALTER TABLE `cc_program`
   ADD PRIMARY KEY (`cc_id`);
 
 --
--- Indexes for table `cc_program_feedback`
+-- Indeks untuk tabel `cc_program_feedback`
 --
 ALTER TABLE `cc_program_feedback`
   ADD PRIMARY KEY (`fb_id`);
 
 --
--- Indexes for table `cc_program_input`
+-- Indeks untuk tabel `cc_program_input`
 --
 ALTER TABLE `cc_program_input`
   ADD PRIMARY KEY (`input_id`);
 
 --
--- Indexes for table `direktorat`
+-- Indeks untuk tabel `direktorat`
 --
 ALTER TABLE `direktorat`
   ADD PRIMARY KEY (`dir_id`);
 
 --
--- Indexes for table `employee`
+-- Indeks untuk tabel `employee`
 --
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`iduser`);
 
 --
--- Indexes for table `evidence`
+-- Indeks untuk tabel `evidence`
 --
 ALTER TABLE `evidence`
   ADD PRIMARY KEY (`id_evidence`);
 
 --
--- Indexes for table `label`
+-- Indeks untuk tabel `label`
 --
 ALTER TABLE `label`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `score`
+-- Indeks untuk tabel `score`
 --
 ALTER TABLE `score`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `skor`
+-- Indeks untuk tabel `skor`
 --
 ALTER TABLE `skor`
   ADD PRIMARY KEY (`unit`);
 
 --
--- Indexes for table `unit`
+-- Indeks untuk tabel `unit`
 --
 ALTER TABLE `unit`
   ADD PRIMARY KEY (`kode_unit`),
   ADD UNIQUE KEY `unit_id` (`unit_id`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`iduser`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `ca_user`
+-- AUTO_INCREMENT untuk tabel `ca_user`
 --
 ALTER TABLE `ca_user`
   MODIFY `id_ca` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `cc_program`
+-- AUTO_INCREMENT untuk tabel `cc_program`
 --
 ALTER TABLE `cc_program`
   MODIFY `cc_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `cc_program_feedback`
+-- AUTO_INCREMENT untuk tabel `cc_program_feedback`
 --
 ALTER TABLE `cc_program_feedback`
   MODIFY `fb_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `cc_program_input`
+-- AUTO_INCREMENT untuk tabel `cc_program_input`
 --
 ALTER TABLE `cc_program_input`
   MODIFY `input_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
--- AUTO_INCREMENT for table `direktorat`
+-- AUTO_INCREMENT untuk tabel `direktorat`
 --
 ALTER TABLE `direktorat`
   MODIFY `dir_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `employee`
+-- AUTO_INCREMENT untuk tabel `employee`
 --
 ALTER TABLE `employee`
   MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7908;
 
 --
--- AUTO_INCREMENT for table `evidence`
+-- AUTO_INCREMENT untuk tabel `evidence`
 --
 ALTER TABLE `evidence`
   MODIFY `id_evidence` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `label`
+-- AUTO_INCREMENT untuk tabel `label`
 --
 ALTER TABLE `label`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;

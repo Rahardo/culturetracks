@@ -165,7 +165,7 @@ include('connection/conn.php');
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h5><strong>Bobot 1</strong></h5>
-                                            <h5>Nilai hasil Questionaire</h5>
+                                            <h5>Memiliki Warrior (Change Agent)</h5>
                                         </div>
 
                                         <div class="col-md-3">
@@ -180,7 +180,7 @@ include('connection/conn.php');
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h5><strong>Bobot 2</strong></h5>
-                                            <h5>Nilai dari FGD</h5>
+                                            <h5>Memiliki TIB</h5>
                                         </div>
 
                                         <div class="col-md-3">
@@ -195,7 +195,7 @@ include('connection/conn.php');
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h5><strong>Bobot 3</strong></h5>
-                                            <h5>Nilai dari Wawancara</h5>
+                                            <h5>Program Terimplementasi >75% (terecord di system)</h5>
                                         </div>
 
                                         <div class="col-md-3">
@@ -210,7 +210,7 @@ include('connection/conn.php');
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h5><strong>Bobot 4</strong></h5>
-                                            <h5>Nilai dari Presentasi</h5>
+                                            <h5>Tracking Method berjalan (ada evidence)</h5>
                                         </div>
 
                                         <div class="col-md-3">
@@ -225,7 +225,7 @@ include('connection/conn.php');
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h5><strong>Bobot 5</strong></h5>
-                                            <h5>Nilai dari Observasi</h5>
+                                            <h5>Enforcement Positif Method berjalan (ada evidence)</h5>
                                         </div>
 
                                         <div class="col-md-3">
@@ -240,7 +240,7 @@ include('connection/conn.php');
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h5><strong>Bobot 6</strong></h5>
-                                            <h5>Nilai dari Observasi</h5>
+                                            <h5>Enforcement Negatif Method berjalan (ada evidence)</h5>
                                         </div>
 
                                         <div class="col-md-3">
